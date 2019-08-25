@@ -8,7 +8,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>project</name>
     <description>Proyecto de Sistemas de Informacion II SHSolutions</description>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
 
     <modules>
         <module>dominio</module>
