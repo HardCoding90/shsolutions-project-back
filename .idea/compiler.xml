@@ -11,8 +11,8 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="dominio" target="1.5" />
-      <module name="negocio" target="1.5" />
+      <module name="dominio" target="1.8" />
+      <module name="negocio" target="1.8" />
       <module name="project" target="1.8" />
     </bytecodeTargetLevel>
   </component>
