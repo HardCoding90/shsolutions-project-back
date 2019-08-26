@@ -1,11 +1,11 @@
 version: "3"
 services:
   dominio:
-    image: dominio/${project.groupId}-${project.artifactId}
+    image: dominio
     network_mode: host
     restart: always
 
     negocio:
-      image: negocio/${project.groupId}-${project.artifactId}
+      image: negocio
       network_mode: host
       restart: always
