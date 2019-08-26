@@ -70,6 +70,7 @@
                             </execution>
                         </executions>
                         <configuration>
+                            <dockerfile>/</dockerfile>
                             <repository>negocio</repository>
                             <tag>${project.version}</tag>
                             <buildArgs>
