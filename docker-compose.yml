@@ -1,7 +1,7 @@
 version: "3"
 services:
   dominio:
-    image: dominio/
+    image: dominio
     network_mode: host
     restart: always
 
