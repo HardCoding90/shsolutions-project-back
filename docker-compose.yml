@@ -1,7 +1,7 @@
 version: "3"
 services:
   dominio:
-    image: dominio/dominio
+    image: dominio/${project.groupId}-${project.artifactId}
     network_mode: host
     restart: always
 
