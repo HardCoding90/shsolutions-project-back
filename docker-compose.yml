@@ -6,6 +6,6 @@ services:
     restart: always
 
     negocio:
-      image: negocio/
+      image: negocio
       network_mode: host
       restart: always
