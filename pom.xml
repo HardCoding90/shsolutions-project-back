@@ -8,7 +8,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>project</name>
     <description>Proyecto de Sistemas de Informacion II SHSolutions</description>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
 
     <modules>
         <module>dominio</module>
@@ -34,21 +34,5 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>

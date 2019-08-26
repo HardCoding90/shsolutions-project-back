@@ -5,8 +5,7 @@
     <parent>
         <groupId>com.shsolutions</groupId>
         <artifactId>project</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <version>0.0.1-SNAPSHOT</version> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.shsolutions.project</groupId>
     <artifactId>negocio</artifactId>
