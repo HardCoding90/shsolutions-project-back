@@ -76,7 +76,6 @@
                             </execution>
                         </executions>
                         <configuration>
-                            <dockerfile>/docker</dockerfile>
                             <repository>dominio</repository>
                             <tag>${project.version}</tag>
                             <buildArgs>
