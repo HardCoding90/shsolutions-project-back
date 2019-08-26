@@ -6,6 +6,6 @@ services:
     restart: always
 
     negocio:
-      image: negocio
+      image: negocio/${project.groupId}-${project.artifactId}
       network_mode: host
       restart: always

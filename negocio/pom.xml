@@ -70,15 +70,11 @@
                             </execution>
                         </executions>
                         <configuration>
-                            <googleContainerRegistryEnabled>false</googleContainerRegistryEnabled>
-                            <username>shsolutions</username>
-                            <password>sistemasinfII</password>
-                            <repository>dominio</repository>
+                            <repository>negocio/${project.groupId}-${project.artifactId}</repository>
                             <tag>${project.version}</tag>
                             <buildArgs>
                                 <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
                             </buildArgs>
-                            <useMavenSettingsForAuth>false</useMavenSettingsForAuth>
                         </configuration>
                     </plugin>
                 </plugins>
