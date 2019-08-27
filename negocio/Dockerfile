@@ -6,10 +6,10 @@
 
 FROM java:8-jdk-alpine
 
-COPY /var/lib/jenkins/workspace/sh/dominio/target/dominio-0.0.1-SNAPSHOT.jar /usr/app/
+COPY ./target/negocio-0.0.1-SNAPSHOT.jar /usr/app/
 
 WORKDIR /usr/app
 
-#RUN sh -c 'touch dominio-0.0.1-SNAPSHOT.jar'
+RUN sh -c 'touch negocio-0.0.1-SNAPSHOT.jar'
 
-ENTRYPOINT ["java","-jar","dominio-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-jar","negocio-0.0.1-SNAPSHOT.jar"]
