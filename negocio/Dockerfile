@@ -1,4 +1,4 @@
 FROM openjdk:8-jre-alpine
 MAINTAINER w
-ENTRYPOINT ["/usr/bin/java", "-jar", "/var/lib/jenkins/workspace/sh/negocio/target/negocio-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["/usr/bin/java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/usr/share/service.jar"]
 CMD ["-start"]
