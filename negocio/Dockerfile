@@ -1,6 +1,3 @@
 FROM openjdk:8-jre-alpine
 MAINTAINER w
-VOLUME /tmp
-ARG JAR_FILE
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/app.jar"]
+ENTRYPOINT ["/usr/bin/java", "-jar", "/var/lib/jenkins/workspace/sh/negocio/target/negocio-0.0.1-SNAPSHOT.jar"]
