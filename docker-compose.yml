@@ -1,13 +1,11 @@
 version: "3"
 services:
   dominio:
-    build: .
     image: dominio
     network_mode: host
     restart: always
 
   negocio:
-    build: .
     image: negocio
     network_mode: host
     restart: always
