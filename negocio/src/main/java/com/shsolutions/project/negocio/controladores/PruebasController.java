@@ -4,6 +4,7 @@ import com.shsolutions.project.negocio.modelos.Pruebas;
 import com.shsolutions.project.negocio.utilidades.Utilidades;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
@@ -11,8 +12,9 @@ import org.springframework.web.client.RestTemplate;
 import java.util.Arrays;
 import java.util.List;
 
-@RestController
-@RequestMapping("/api/pruebas")
+@Controller
+//@RestController
+//@RequestMapping("/api/pruebas")
 public class PruebasController {
 
     @Value("${spring.application.name}")
