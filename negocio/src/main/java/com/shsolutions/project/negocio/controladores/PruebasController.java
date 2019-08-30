@@ -1,20 +1,16 @@
 package com.shsolutions.project.negocio.controladores;
 
 import com.shsolutions.project.negocio.modelos.Pruebas;
-import com.shsolutions.project.negocio.utilidades.Utilidades;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
 import java.util.List;
 
-@Controller
-//@RestController
-//@RequestMapping("/api/pruebas")
+@RestController
+@RequestMapping("/api/pruebas")
 public class PruebasController {
 
     @Value("${spring.application.name}")
@@ -30,12 +26,12 @@ public class PruebasController {
         return Arrays.asList(restTemplate.getForObject(DOMAIN + "/findAll",Pruebas[].class));
     }
 
-    @RequestMapping(path = "/welcome")
+    /*@RequestMapping(path = "/welcome")
     @ResponseBody
     public String homePage(Model model) {
         model.addAttribute("appName", appName);
         return "home";
-    }
+    }*/
 
     @PostMapping()
     Pruebas save(@RequestBody Pruebas prueba){
