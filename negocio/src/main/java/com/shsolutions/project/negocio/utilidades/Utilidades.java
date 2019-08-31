@@ -5,10 +5,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class Utilidades {
 
-//    public static RestTemplate restTemplate;
-//
-//    @Autowired
-//    public static void setRestTemplate(RestTemplate restTemplate) {
-//       Utilidades.restTemplate = restTemplate;
-//    }
+    public static String DOMAIN = "http://localhost:8082/api/";
+
 }
