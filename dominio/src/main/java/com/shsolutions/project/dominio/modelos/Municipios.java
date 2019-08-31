@@ -1,15 +1,19 @@
 package com.shsolutions.project.dominio.modelos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "municipios", catalog = "shsolutions")
 public class Municipios {
-
     private Integer idMunicipio;
     private Integer idDepartamento;
     private String codigo;
     private String ciudad;
+
+    private Departamentos departamentos;
 
     public Municipios() {
     }
@@ -53,6 +57,17 @@ public class Municipios {
 
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
+    }
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "IdDepartamento", foreignKey = @ForeignKey(name = "IdDepartamento"), updatable = false, insertable = false)
+    public Departamentos getDepartamentos() {
+        return departamentos;
+    }
+
+    public void setDepartamentos(Departamentos departamentos) {
+        this.departamentos = departamentos;
     }
 
     @Override
