@@ -1,6 +1,7 @@
 package com.shsolutions.project.negocio.modelos;
 
 public class Municipios {
+
     private Integer idMunicipio;
     private Integer idDepartamento;
     private String codigo;

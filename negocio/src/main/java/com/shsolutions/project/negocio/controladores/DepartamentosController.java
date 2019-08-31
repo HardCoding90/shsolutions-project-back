@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
+import static com.shsolutions.project.negocio.utilidades.Utilidades.*;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -14,10 +16,7 @@ import java.util.List;
 @RequestMapping("/api/departamentos")
 public class DepartamentosController {
 
-    @Autowired
-    RestTemplate restTemplate;
-
-    private String DOMAIN_URL = Utilidades.DOMAIN + "departamentos";
+    private String DOMAIN_URL = DOMAIN + "departamentos";
 
     @GetMapping("/findAll")
     List<Departamentos> findAll(){

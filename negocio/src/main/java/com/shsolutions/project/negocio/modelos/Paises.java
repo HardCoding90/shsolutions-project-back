@@ -1,6 +1,7 @@
 package com.shsolutions.project.negocio.modelos;
 
 public class Paises {
+
     private Integer idPais;
     private String codigo;
     private String pais;

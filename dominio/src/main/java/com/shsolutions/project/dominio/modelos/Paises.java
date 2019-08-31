@@ -5,6 +5,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "paises", catalog = "shsolutions")
 public class Paises {
+    
     private Integer idPais;
     private String codigo;
     private String pais;
