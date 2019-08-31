@@ -16,7 +16,7 @@ public class PaisesController {
     @Autowired
     RestTemplate restTemplate;
 
-    private String DOMAIN_URL = Utilidades.DOMAIN + "departamentos";
+    private String DOMAIN_URL = Utilidades.DOMAIN + "paises";
 
     @GetMapping("/findAll")
     List<Paises> findAll(){
