@@ -9,7 +9,7 @@ public class Sucursales {
 
     private Integer idSucursal;
     private Integer idDireccion;
-    private String indicadorHabilitado;
+    private Boolean indicadorHabilitado;
 
     public Sucursales() {
     }
@@ -37,11 +37,11 @@ public class Sucursales {
 
     @Basic
     @Column(name = "IndicadorHabilitado")
-    public String getIndicadorHabilitado() {
+    public Boolean getIndicadorHabilitado() {
         return indicadorHabilitado;
     }
 
-    public void setIndicadorHabilitado(String indicadorHabilitado) {
+    public void setIndicadorHabilitado(Boolean indicadorHabilitado) {
         this.indicadorHabilitado = indicadorHabilitado;
     }
 
