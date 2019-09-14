@@ -1,13 +1,13 @@
 package com.shsolutions.project.negocio.modelos;
 
-import java.util.Objects;
-
 public class Direcciones {
 
     private Integer idDireccion;
     private Integer idMunicipio;
     private String direccion;
     private String barrio;
+    private Boolean indicadorPrincipal;
+    private Boolean indicadorHabilitado;
 
     public Integer getIdDireccion() {
         return idDireccion;
@@ -39,5 +39,21 @@ public class Direcciones {
 
     public void setBarrio(String barrio) {
         this.barrio = barrio;
+    }
+
+    public Boolean getIndicadorPrincipal() {
+        return indicadorPrincipal;
+    }
+
+    public void setIndicadorPrincipal(Boolean indicadorPrincipal) {
+        this.indicadorPrincipal = indicadorPrincipal;
+    }
+
+    public Boolean getIndicadorHabilitado() {
+        return indicadorHabilitado;
+    }
+
+    public void setIndicadorHabilitado(Boolean indicadorHabilitado) {
+        this.indicadorHabilitado = indicadorHabilitado;
     }
 }

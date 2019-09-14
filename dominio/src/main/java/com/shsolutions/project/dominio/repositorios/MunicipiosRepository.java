@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface MunicipiosRepository extends JpaRepository<Municipios,Integer> {
 
-    List<Municipios> findAllByIndicadorHabilitado();
+    List<Municipios> findAllByIndicadorHabilitadoTrue();
 
 }

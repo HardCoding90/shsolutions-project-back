@@ -22,7 +22,7 @@ public class DireccionesController {
 
     @GetMapping("/findAll/enabled")
     List<Direcciones> findAllEnabled() {
-        return direccionesRepository.findAllByIndicadorHabilitado();
+        return direccionesRepository.findAllByIndicadorHabilitadoTrue();
     }
 
     @GetMapping("/findById/{id}")

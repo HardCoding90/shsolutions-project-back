@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface DepartamentosRepository extends JpaRepository<Departamentos,Integer> {
 
-    List<Departamentos> findAllByIndicadorHabilitado();
+    List<Departamentos> findAllByIndicadorHabilitadoTrue();
 
 }

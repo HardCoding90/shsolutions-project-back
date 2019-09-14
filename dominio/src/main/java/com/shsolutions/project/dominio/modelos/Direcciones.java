@@ -11,6 +11,7 @@ public class Direcciones {
     private Integer idMunicipio;
     private String direccion;
     private String barrio;
+    private Boolean indicadorPrincipal;
     private Boolean indicadorHabilitado;
 
     public Direcciones() {
@@ -58,6 +59,16 @@ public class Direcciones {
     }
 
     @Basic
+    @Column(name = "IndicadorPrincipal")
+    public Boolean getIndicadorPrincipal() {
+        return indicadorPrincipal;
+    }
+
+    public void setIndicadorPrincipal(Boolean indicadorPrincipal) {
+        this.indicadorPrincipal = indicadorPrincipal;
+    }
+
+    @Basic
     @Column(name = "IndicadorHabilitado")
     public Boolean getIndicadorHabilitado() {
         return indicadorHabilitado;
@@ -75,11 +86,13 @@ public class Direcciones {
         return Objects.equals(getIdDireccion(), that.getIdDireccion()) &&
                 Objects.equals(getIdMunicipio(), that.getIdMunicipio()) &&
                 Objects.equals(getDireccion(), that.getDireccion()) &&
-                Objects.equals(getBarrio(), that.getBarrio());
+                Objects.equals(getBarrio(), that.getBarrio()) &&
+                Objects.equals(getIndicadorPrincipal(), that.getIndicadorPrincipal()) &&
+                Objects.equals(getIndicadorHabilitado(), that.getIndicadorHabilitado());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getIdDireccion(), getIdMunicipio(), getDireccion(), getBarrio());
+        return Objects.hash(getIdDireccion(), getIdMunicipio(), getDireccion(), getBarrio(), getIndicadorPrincipal(), getIndicadorHabilitado());
     }
 }

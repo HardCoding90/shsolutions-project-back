@@ -22,7 +22,7 @@ public class PaisesController {
 
     @GetMapping("/findAll/enabled")
     List<Paises> findAllEnabled() {
-        return paisesRepository.findAllByIndicadorHabilitado();
+        return paisesRepository.findAllByIndicadorHabilitadoTrue();
     }
 
     @GetMapping("/findById/{id}")

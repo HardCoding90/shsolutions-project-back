@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface PersonasRepository extends JpaRepository<Personas, Integer> {
 
-    List<Personas> findAllByIndicadorHabilitado();
+    List<Personas> findAllByIndicadorHabilitadoTrue();
 
 }

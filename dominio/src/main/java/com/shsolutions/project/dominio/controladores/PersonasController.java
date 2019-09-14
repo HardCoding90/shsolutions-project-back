@@ -21,7 +21,7 @@ public class PersonasController {
 
     @GetMapping("/findAll/enabled")
     List<Personas> findAllEnabled() {
-        return personasRepository.findAllByIndicadorHabilitado();
+        return personasRepository.findAllByIndicadorHabilitadoTrue();
     }
 
     @GetMapping("/findById/{id}")

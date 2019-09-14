@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface PaisesRepository extends JpaRepository<Paises,Integer> {
 
-    List<Paises> findAllByIndicadorHabilitado();
+    List<Paises> findAllByIndicadorHabilitadoTrue();
 
 }

@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface DireccionesRepository extends JpaRepository<Direcciones,Integer> {
 
-    List<Direcciones> findAllByIndicadorHabilitado();
+    List<Direcciones> findAllByIndicadorHabilitadoTrue();
 
 }
