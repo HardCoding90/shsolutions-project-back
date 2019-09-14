@@ -21,7 +21,7 @@ public class MunicipiosController {
 
     @GetMapping("/findAll/enabled")
     List<Municipios> findAllEnabled() {
-        return departamentosRepository.findAll();
+        return departamentosRepository.findAllByIndicadorHabilitado();
     }
 
     @GetMapping("/findById/{id}")

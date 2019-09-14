@@ -35,4 +35,9 @@ public class SucursalesController {
         return restTemplate.postForObject(DOMAIN_URL, sucursales, Sucursales.class);
     }
 
+    @PutMapping()
+    Sucursales update(@RequestBody Sucursales sucursales){
+        return restTemplate.postForObject(DOMAIN_URL ,sucursales,Sucursales.class);
+    }
+
 }

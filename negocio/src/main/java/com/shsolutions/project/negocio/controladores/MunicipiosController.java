@@ -37,4 +37,9 @@ public class MunicipiosController {
         return restTemplate.postForObject(DOMAIN_URL ,paises,Municipios.class);
     }
 
+    @PutMapping()
+    Municipios update(@RequestBody Municipios municipios){
+        return restTemplate.postForObject(DOMAIN_URL ,municipios,Municipios.class);
+    }
+
 }

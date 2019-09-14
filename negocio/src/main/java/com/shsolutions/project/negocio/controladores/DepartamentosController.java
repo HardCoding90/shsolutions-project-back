@@ -38,4 +38,8 @@ public class DepartamentosController {
         return restTemplate.postForObject(DOMAIN_URL ,departamentos,Departamentos.class);
     }
 
+    @PutMapping()
+    Departamentos update(@RequestBody Departamentos departamentos){
+        return restTemplate.postForObject(DOMAIN_URL ,departamentos,Departamentos.class);
+    }
 }

@@ -36,4 +36,9 @@ public class DireccionesController {
         return restTemplate.postForObject(DOMAIN_URL, paises, Direcciones.class);
     }
 
+    @PutMapping()
+    Direcciones update(@RequestBody Direcciones direcciones){
+        return restTemplate.postForObject(DOMAIN_URL ,direcciones,Direcciones.class);
+    }
+
 }

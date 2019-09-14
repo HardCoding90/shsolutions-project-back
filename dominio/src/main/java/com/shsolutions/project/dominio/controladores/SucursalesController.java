@@ -21,7 +21,7 @@ public class SucursalesController {
 
     @GetMapping("/findAll/enabled")
     List<Sucursales> findAllEnabled() {
-        return sucursalesRepository.findAll();
+        return sucursalesRepository.findAllByIndicadorHabilitado();
     }
 
     @GetMapping("/findById/{id}")

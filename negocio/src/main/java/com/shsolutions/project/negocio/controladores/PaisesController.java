@@ -35,4 +35,9 @@ public class PaisesController {
         return restTemplate.postForObject(DOMAIN_URL, paises, Paises.class);
     }
 
+    @PutMapping()
+    Paises update(@RequestBody Paises paises){
+        return restTemplate.postForObject(DOMAIN_URL ,paises,Paises.class);
+    }
+
 }
