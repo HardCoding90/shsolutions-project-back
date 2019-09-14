@@ -15,7 +15,6 @@ public class Personas {
     private Integer idTipoDocumento;
     private String numeroDocumento;
     private String email;
-    private Integer idDireccion;
     private LocalDateTime fechaRegistro;
     private Boolean indicadorAdministrativo;
     private Boolean indicadorHabilitado;
@@ -98,14 +97,6 @@ public class Personas {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public Integer getIdDireccion() {
-        return idDireccion;
-    }
-
-    public void setIdDireccion(Integer idDireccion) {
-        this.idDireccion = idDireccion;
     }
 
     public LocalDateTime getFechaRegistro() {

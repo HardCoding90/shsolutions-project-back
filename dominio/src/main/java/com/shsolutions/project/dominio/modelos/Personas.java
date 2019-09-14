@@ -19,7 +19,6 @@ public class Personas {
     private Integer idTipoDocumento;
     private String numeroDocumento;
     private String email;
-    private Integer idDireccion;
     private LocalDateTime fechaRegistro;
     private Boolean indicadorAdministrativo;
     private Boolean indicadorHabilitado;
@@ -129,16 +128,6 @@ public class Personas {
     }
 
     @Basic
-    @Column(name = "IdDireccion")
-    public Integer getIdDireccion() {
-        return idDireccion;
-    }
-
-    public void setIdDireccion(Integer idDireccion) {
-        this.idDireccion = idDireccion;
-    }
-
-    @Basic
     @Column(name = "FechaRegistro")
     public LocalDateTime getFechaRegistro() {
         return fechaRegistro;
@@ -168,6 +157,7 @@ public class Personas {
         this.indicadorHabilitado = indicadorHabilitado;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -183,7 +173,6 @@ public class Personas {
                 Objects.equals(getIdTipoDocumento(), personas.getIdTipoDocumento()) &&
                 Objects.equals(getNumeroDocumento(), personas.getNumeroDocumento()) &&
                 Objects.equals(getEmail(), personas.getEmail()) &&
-                Objects.equals(getIdDireccion(), personas.getIdDireccion()) &&
                 Objects.equals(getFechaRegistro(), personas.getFechaRegistro()) &&
                 Objects.equals(getIndicadorAdministrativo(), personas.getIndicadorAdministrativo()) &&
                 Objects.equals(getIndicadorHabilitado(), personas.getIndicadorHabilitado());
@@ -191,6 +180,6 @@ public class Personas {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getIdPersona(), getPrimerNombre(), getSegundoNombre(), getPrimerApellido(), getSegundoApellido(), getIdGenero(), getFechaNacimiento(), getIdTipoDocumento(), getNumeroDocumento(), getEmail(), getIdDireccion(), getFechaRegistro(), getIndicadorAdministrativo(), getIndicadorHabilitado());
+        return Objects.hash(getIdPersona(), getPrimerNombre(), getSegundoNombre(), getPrimerApellido(), getSegundoApellido(), getIdGenero(), getFechaNacimiento(), getIdTipoDocumento(), getNumeroDocumento(), getEmail(), getFechaRegistro(), getIndicadorAdministrativo(), getIndicadorHabilitado());
     }
 }

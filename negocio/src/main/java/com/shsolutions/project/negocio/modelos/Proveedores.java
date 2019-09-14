@@ -8,7 +8,6 @@ public class Proveedores {
     private String razonSocial;
     private String nit;
     private String email;
-    private Integer idDireccion;
     private LocalDate fechaRegistro;
     private Boolean indicadorHabilitado;
 
@@ -42,14 +41,6 @@ public class Proveedores {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public Integer getIdDireccion() {
-        return idDireccion;
-    }
-
-    public void setIdDireccion(Integer idDireccion) {
-        this.idDireccion = idDireccion;
     }
 
     public LocalDate getFechaRegistro() {

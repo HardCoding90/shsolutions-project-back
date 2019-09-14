@@ -12,7 +12,6 @@ public class Proveedores {
     private String razonSocial;
     private String nit;
     private String email;
-    private Integer idDireccion;
     private LocalDate fechaRegistro;
     private Boolean indicadorHabilitado;
 
@@ -89,13 +88,12 @@ public class Proveedores {
                 Objects.equals(getRazonSocial(), that.getRazonSocial()) &&
                 Objects.equals(getNit(), that.getNit()) &&
                 Objects.equals(getEmail(), that.getEmail()) &&
-                Objects.equals(idDireccion, that.idDireccion) &&
                 Objects.equals(getFechaRegistro(), that.getFechaRegistro()) &&
                 Objects.equals(getIndicadorHabilitado(), that.getIndicadorHabilitado());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getIdProveedor(), getRazonSocial(), getNit(), getEmail(), idDireccion, getFechaRegistro(), getIndicadorHabilitado());
+        return Objects.hash(getIdProveedor(), getRazonSocial(), getNit(), getEmail(), getFechaRegistro(), getIndicadorHabilitado());
     }
 }

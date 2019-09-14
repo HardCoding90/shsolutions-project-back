@@ -33,8 +33,8 @@ public class MunicipiosController {
     }
 
     @PostMapping()
-    Municipios save(@RequestBody Municipios paises){
-        return restTemplate.postForObject(DOMAIN_URL ,paises,Municipios.class);
+    Municipios save(@RequestBody Municipios municipios){
+        return restTemplate.postForObject(DOMAIN_URL ,municipios,Municipios.class);
     }
 
     @PutMapping()
