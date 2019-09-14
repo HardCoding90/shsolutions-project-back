@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "municipios", catalog = "shsolutions")
@@ -12,6 +13,7 @@ public class Municipios {
     private Integer idDepartamento;
     private String codigo;
     private String ciudad;
+    private Boolean indicadorHabilitado;
 
     private Departamentos departamentos;
 
@@ -59,6 +61,16 @@ public class Municipios {
         this.ciudad = ciudad;
     }
 
+    @Basic
+    @Column(name = "IndicadorHabilitado")
+    public Boolean getIndicadorHabilitado() {
+        return indicadorHabilitado;
+    }
+
+    public void setIndicadorHabilitado(Boolean indicadorHabilitado) {
+        this.indicadorHabilitado = indicadorHabilitado;
+    }
+
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "IdDepartamento", foreignKey = @ForeignKey(name = "IdDepartamento"), updatable = false, insertable = false)
@@ -74,24 +86,16 @@ public class Municipios {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Municipios that = (Municipios) o;
-
-        if (idMunicipio != null ? !idMunicipio.equals(that.idMunicipio) : that.idMunicipio != null) return false;
-        if (idDepartamento != null ? !idDepartamento.equals(that.idDepartamento) : that.idDepartamento != null)
-            return false;
-        if (codigo != null ? !codigo.equals(that.codigo) : that.codigo != null) return false;
-        if (ciudad != null ? !ciudad.equals(that.ciudad) : that.ciudad != null) return false;
-
-        return true;
+        return Objects.equals(getIdMunicipio(), that.getIdMunicipio()) &&
+                Objects.equals(getIdDepartamento(), that.getIdDepartamento()) &&
+                Objects.equals(getCodigo(), that.getCodigo()) &&
+                Objects.equals(getCiudad(), that.getCiudad()) &&
+                Objects.equals(getIndicadorHabilitado(), that.getIndicadorHabilitado());
     }
 
     @Override
     public int hashCode() {
-        int result = idMunicipio != null ? idMunicipio.hashCode() : 0;
-        result = 31 * result + (idDepartamento != null ? idDepartamento.hashCode() : 0);
-        result = 31 * result + (codigo != null ? codigo.hashCode() : 0);
-        result = 31 * result + (ciudad != null ? ciudad.hashCode() : 0);
-        return result;
+        return Objects.hash(getIdMunicipio(), getIdDepartamento(), getCodigo(), getCiudad(), getIndicadorHabilitado());
     }
 }

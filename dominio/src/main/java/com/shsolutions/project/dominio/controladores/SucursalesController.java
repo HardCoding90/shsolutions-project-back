@@ -19,6 +19,16 @@ public class SucursalesController {
         return sucursalesRepository.findAll();
     }
 
+    @GetMapping("/findAll/enabled")
+    List<Sucursales> findAllEnabled() {
+        return sucursalesRepository.findAll();
+    }
+
+    @GetMapping("/findById/{id}")
+    Sucursales findById(@PathVariable Integer id) {
+        return sucursalesRepository.findById(id).orElse(null);
+    }
+
     @PostMapping()
     Sucursales save(@RequestBody Sucursales sucursales) {
         return sucursalesRepository.save(sucursales);

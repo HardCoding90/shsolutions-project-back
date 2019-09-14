@@ -14,11 +14,21 @@ import static com.shsolutions.project.negocio.utilidades.Utilidades.restTemplate
 @RequestMapping("/api/direcciones")
 public class DireccionesController {
 
-    private String DOMAIN_URL = DOMAIN + "direcciones";
+    private final String DOMAIN_URL = DOMAIN + "direcciones";
 
     @GetMapping("/findAll")
     List<Direcciones> findAll() {
         return Arrays.asList(restTemplate.getForObject(DOMAIN_URL + "/findAll", Direcciones[].class));
+    }
+
+    @GetMapping("/findAll/enabled")
+    List<Direcciones> findAllEnabled(){
+        return Arrays.asList(restTemplate.getForObject(DOMAIN_URL + "/findAll/enabled",Direcciones[].class));
+    }
+
+    @GetMapping("/findById/{id}")
+    Direcciones findAll(@PathVariable Integer id){
+        return restTemplate.getForObject(DOMAIN_URL + "/findById/" + id,Direcciones.class);
     }
 
     @PostMapping()

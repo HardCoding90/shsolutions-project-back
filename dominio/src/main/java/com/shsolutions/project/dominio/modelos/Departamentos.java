@@ -1,6 +1,7 @@
 package com.shsolutions.project.dominio.modelos;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "departamentos", catalog = "shsolutions")
@@ -10,6 +11,7 @@ public class Departamentos {
     private Integer idPais;
     private String codigo;
     private String departamento;
+    private Boolean indicadorHabilitado;
 
     public Departamentos() {
     }
@@ -55,28 +57,30 @@ public class Departamentos {
         this.departamento = departamento;
     }
 
+    @Basic
+    @Column(name = "IndicadorHabilitado")
+    public Boolean getIndicadorHabilitado() {
+        return indicadorHabilitado;
+    }
+
+    public void setIndicadorHabilitado(Boolean indicadorHabilitado) {
+        this.indicadorHabilitado = indicadorHabilitado;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Departamentos that = (Departamentos) o;
-
-        if (idDepartamento != null ? !idDepartamento.equals(that.idDepartamento) : that.idDepartamento != null)
-            return false;
-        if (idPais != null ? !idPais.equals(that.idPais) : that.idPais != null) return false;
-        if (codigo != null ? !codigo.equals(that.codigo) : that.codigo != null) return false;
-        if (departamento != null ? !departamento.equals(that.departamento) : that.departamento != null) return false;
-
-        return true;
+        return Objects.equals(getIdDepartamento(), that.getIdDepartamento()) &&
+                Objects.equals(getIdPais(), that.getIdPais()) &&
+                Objects.equals(getCodigo(), that.getCodigo()) &&
+                Objects.equals(getDepartamento(), that.getDepartamento()) &&
+                Objects.equals(getIndicadorHabilitado(), that.getIndicadorHabilitado());
     }
 
     @Override
     public int hashCode() {
-        int result = idDepartamento != null ? idDepartamento.hashCode() : 0;
-        result = 31 * result + (idPais != null ? idPais.hashCode() : 0);
-        result = 31 * result + (codigo != null ? codigo.hashCode() : 0);
-        result = 31 * result + (departamento != null ? departamento.hashCode() : 0);
-        return result;
+        return Objects.hash(getIdDepartamento(), getIdPais(), getCodigo(), getDepartamento(), getIndicadorHabilitado());
     }
 }

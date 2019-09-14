@@ -15,11 +15,21 @@ import java.util.List;
 @RequestMapping("/api/municipios")
 public class MunicipiosController {
 
-    private String DOMAIN_URL = DOMAIN + "municipios";
+    private final String DOMAIN_URL = DOMAIN + "municipios";
 
     @GetMapping("/findAll")
     List<Municipios> findAll(){
         return Arrays.asList(restTemplate.getForObject(DOMAIN_URL + "/findAll",Municipios[].class));
+    }
+
+    @GetMapping("/findAll/enabled")
+    List<Municipios> findAllEnabled(){
+        return Arrays.asList(restTemplate.getForObject(DOMAIN_URL + "/findAll/enabled",Municipios[].class));
+    }
+
+    @GetMapping("/findById/{id}")
+    Municipios findAll(@PathVariable Integer id){
+        return restTemplate.getForObject(DOMAIN_URL + "/findById/" + id,Municipios.class);
     }
 
     @PostMapping()

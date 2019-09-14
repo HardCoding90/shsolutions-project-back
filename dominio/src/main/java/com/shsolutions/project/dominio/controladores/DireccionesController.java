@@ -20,6 +20,16 @@ public class DireccionesController {
         return direccionesRepository.findAll();
     }
 
+    @GetMapping("/findAll/enabled")
+    List<Direcciones> findAllEnabled() {
+        return direccionesRepository.findAll();
+    }
+
+    @GetMapping("/findById/{id}")
+    Direcciones findById(@PathVariable Integer id) {
+        return direccionesRepository.findById(id).orElse(null);
+    }
+
     @PostMapping()
     Direcciones save(@RequestBody Direcciones direcciones) {
         return direccionesRepository.save(direcciones);

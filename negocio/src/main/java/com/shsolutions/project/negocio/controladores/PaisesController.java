@@ -9,6 +9,7 @@ import java.util.List;
 import static com.shsolutions.project.negocio.utilidades.Utilidades.*;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api/paises")
 public class PaisesController {
 
@@ -17,6 +18,16 @@ public class PaisesController {
     @GetMapping("/findAll")
     List<Paises> findAll() {
         return Arrays.asList(restTemplate.getForObject(DOMAIN_URL + "/findAll", Paises[].class));
+    }
+
+    @GetMapping("/findAll/enabled")
+    List<Paises> findAllEnabled(){
+        return Arrays.asList(restTemplate.getForObject(DOMAIN_URL + "/findAll/enabled",Paises[].class));
+    }
+
+    @GetMapping("/findById/{id}")
+    Paises findAll(@PathVariable Integer id){
+        return restTemplate.getForObject(DOMAIN_URL + "/findById/" + id,Paises.class);
     }
 
     @PostMapping()

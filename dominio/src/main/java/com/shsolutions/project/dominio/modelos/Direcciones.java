@@ -11,6 +11,7 @@ public class Direcciones {
     private Integer idMunicipio;
     private String direccion;
     private String barrio;
+    private Boolean indicadorHabilitado;
 
     public Direcciones() {
     }
@@ -54,6 +55,16 @@ public class Direcciones {
 
     public void setBarrio(String barrio) {
         this.barrio = barrio;
+    }
+
+    @Basic
+    @Column(name = "IndicadorHabilitado")
+    public Boolean getIndicadorHabilitado() {
+        return indicadorHabilitado;
+    }
+
+    public void setIndicadorHabilitado(Boolean indicadorHabilitado) {
+        this.indicadorHabilitado = indicadorHabilitado;
     }
 
     @Override

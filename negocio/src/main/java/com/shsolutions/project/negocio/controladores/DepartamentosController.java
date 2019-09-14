@@ -16,11 +16,21 @@ import java.util.List;
 @RequestMapping("/api/departamentos")
 public class DepartamentosController {
 
-    private String DOMAIN_URL = DOMAIN + "departamentos";
+    private final String DOMAIN_URL = DOMAIN + "departamentos";
 
     @GetMapping("/findAll")
     List<Departamentos> findAll(){
         return Arrays.asList(restTemplate.getForObject(DOMAIN_URL + "/findAll",Departamentos[].class));
+    }
+
+    @GetMapping("/findAll/enabled")
+    List<Departamentos> findAllEnabled(){
+        return Arrays.asList(restTemplate.getForObject(DOMAIN_URL + "/findAll/enabled",Departamentos[].class));
+    }
+
+    @GetMapping("/findById/{id}")
+    Departamentos findAll(@PathVariable Integer id){
+        return restTemplate.getForObject(DOMAIN_URL + "/findById/" + id,Departamentos.class);
     }
 
     @PostMapping()

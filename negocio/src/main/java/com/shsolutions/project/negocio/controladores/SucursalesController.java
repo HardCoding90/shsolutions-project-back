@@ -20,6 +20,16 @@ public class SucursalesController {
         return Arrays.asList(restTemplate.getForObject(DOMAIN_URL + "/findAll", Sucursales[].class));
     }
 
+    @GetMapping("/findAll/enabled")
+    List<Sucursales> findAllEnabled(){
+        return Arrays.asList(restTemplate.getForObject(DOMAIN_URL + "/findAll/enabled",Sucursales[].class));
+    }
+
+    @GetMapping("/findById/{id}")
+    Sucursales findAll(@PathVariable Integer id){
+        return restTemplate.getForObject(DOMAIN_URL + "/findById/" + id,Sucursales.class);
+    }
+
     @PostMapping()
     Sucursales save(@RequestBody Sucursales sucursales) {
         return restTemplate.postForObject(DOMAIN_URL, sucursales, Sucursales.class);

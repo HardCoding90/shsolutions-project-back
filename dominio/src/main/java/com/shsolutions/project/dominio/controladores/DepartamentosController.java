@@ -19,6 +19,16 @@ public class DepartamentosController {
         return departamentosRepository.findAll();
     }
 
+    @GetMapping("/findAll/enabled")
+    List<Departamentos> findAllEnabled() {
+        return departamentosRepository.findAll();
+    }
+
+    @GetMapping("/findById/{id}")
+    Departamentos findById(@PathVariable Integer id) {
+        return departamentosRepository.findById(id).orElse(null);
+    }
+
     @PostMapping()
     Departamentos save(@RequestBody Departamentos departamentos) {
         return departamentosRepository.save(departamentos);

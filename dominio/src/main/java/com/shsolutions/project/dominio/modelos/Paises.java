@@ -1,6 +1,7 @@
 package com.shsolutions.project.dominio.modelos;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "paises", catalog = "shsolutions")
@@ -9,6 +10,7 @@ public class Paises {
     private Integer idPais;
     private String codigo;
     private String pais;
+    private Boolean indicadorHabilitado;
 
     public Paises() {
     }
@@ -44,25 +46,29 @@ public class Paises {
         this.pais = pais;
     }
 
+    @Basic
+    @Column(name = "IndicadorHabilitado")
+    public Boolean getIndicadorHabilitado() {
+        return indicadorHabilitado;
+    }
+
+    public void setIndicadorHabilitado(Boolean indicadorHabilitado) {
+        this.indicadorHabilitado = indicadorHabilitado;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Paises paises = (Paises) o;
-
-        if (idPais != null ? !idPais.equals(paises.idPais) : paises.idPais != null) return false;
-        if (codigo != null ? !codigo.equals(paises.codigo) : paises.codigo != null) return false;
-        if (pais != null ? !pais.equals(paises.pais) : paises.pais != null) return false;
-
-        return true;
+        return Objects.equals(getIdPais(), paises.getIdPais()) &&
+                Objects.equals(getCodigo(), paises.getCodigo()) &&
+                Objects.equals(getPais(), paises.getPais()) &&
+                Objects.equals(getIndicadorHabilitado(), paises.getIndicadorHabilitado());
     }
 
     @Override
     public int hashCode() {
-        int result = idPais != null ? idPais.hashCode() : 0;
-        result = 31 * result + (codigo != null ? codigo.hashCode() : 0);
-        result = 31 * result + (pais != null ? pais.hashCode() : 0);
-        return result;
+        return Objects.hash(getIdPais(), getCodigo(), getPais(), getIndicadorHabilitado());
     }
 }

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api/paises")
 public class PaisesController {
 
@@ -17,6 +18,16 @@ public class PaisesController {
     @GetMapping("/findAll")
     List<Paises> findAll() {
         return paisesRepository.findAll();
+    }
+
+    @GetMapping("/findAll/enabled")
+    List<Paises> findAllEnabled() {
+        return paisesRepository.findAll();
+    }
+
+    @GetMapping("/findById/{id}")
+    Paises findById(@PathVariable Integer id) {
+        return paisesRepository.findById(id).orElse(null);
     }
 
     @PostMapping()
