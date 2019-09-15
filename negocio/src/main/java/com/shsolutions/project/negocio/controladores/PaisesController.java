@@ -9,7 +9,7 @@ import java.util.List;
 import static com.shsolutions.project.negocio.utilidades.Utilidades.*;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin
 @RequestMapping("/api/paises")
 public class PaisesController {
 
