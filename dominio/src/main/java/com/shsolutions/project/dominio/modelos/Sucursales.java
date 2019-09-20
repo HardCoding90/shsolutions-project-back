@@ -8,7 +8,6 @@ import java.util.Objects;
 public class Sucursales {
 
     private Integer idSucursal;
-    private Integer idDireccion;
     private Boolean indicadorHabilitado;
 
     public Sucursales() {
@@ -23,16 +22,6 @@ public class Sucursales {
 
     public void setIdSucursal(Integer idSucursal) {
         this.idSucursal = idSucursal;
-    }
-
-    @Basic
-    @Column(name = "IdDireccion")
-    public Integer getIdDireccion() {
-        return idDireccion;
-    }
-
-    public void setIdDireccion(Integer idDireccion) {
-        this.idDireccion = idDireccion;
     }
 
     @Basic
@@ -51,12 +40,11 @@ public class Sucursales {
         if (o == null || getClass() != o.getClass()) return false;
         Sucursales that = (Sucursales) o;
         return Objects.equals(getIdSucursal(), that.getIdSucursal()) &&
-                Objects.equals(getIdDireccion(), that.getIdDireccion()) &&
                 Objects.equals(getIndicadorHabilitado(), that.getIndicadorHabilitado());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getIdSucursal(), getIdDireccion(), getIndicadorHabilitado());
+        return Objects.hash(getIdSucursal(), getIndicadorHabilitado());
     }
 }
