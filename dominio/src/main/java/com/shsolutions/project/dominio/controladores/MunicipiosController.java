@@ -29,6 +29,11 @@ public class MunicipiosController {
         return departamentosRepository.findById(id).orElse(null);
     }
 
+    @GetMapping("/departamento/{idDepartamento}")
+    List<Municipios> findByDepartamento(@PathVariable Integer idDepartamento) {
+        return departamentosRepository.findByIndicadorHabilitadoTrueAndIdDepartamento(idDepartamento);
+    }
+
     @PostMapping()
     Municipios save(@RequestBody Municipios municipios) {
         return departamentosRepository.save(municipios);

@@ -9,4 +9,6 @@ public interface MunicipiosRepository extends JpaRepository<Municipios,Integer> 
 
     List<Municipios> findAllByIndicadorHabilitadoTrue();
 
+    List<Municipios> findByIndicadorHabilitadoTrueAndIdDepartamento(Integer idDepartamento);
+
 }

@@ -12,6 +12,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/municipios")
 public class MunicipiosController {
 
@@ -30,6 +31,11 @@ public class MunicipiosController {
     @GetMapping("/findById/{id}")
     Municipios findAll(@PathVariable Integer id){
         return restTemplate.getForObject(DOMAIN_URL + "/findById/" + id,Municipios.class);
+    }
+
+    @GetMapping("/departamento/{idDepartamento}")
+    List<Municipios> findByDepartamento(@PathVariable Integer idDepartamento){
+        return Arrays.asList(restTemplate.getForObject(DOMAIN_URL + "/departamento/" + idDepartamento,Municipios[].class));
     }
 
     @PostMapping()
