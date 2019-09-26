@@ -1,6 +1,7 @@
 package com.shsolutions.project.dominio.modelos;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.Objects;
 
 @Entity
@@ -10,7 +11,7 @@ public class OrdenesProductos {
     private Integer idOrdenProducto;
     private Integer idProductoProveedor;
     private Integer idOrden;
-    private Double valorCompraUnidad;
+    private BigDecimal valorCompraUnidad;
     private Integer cantidad;
     private Boolean indicadorHabilitado;
 
@@ -50,11 +51,11 @@ public class OrdenesProductos {
 
     @Basic
     @Column(name = "ValorCompraUnidad")
-    public Double getValorCompraUnidad() {
+    public BigDecimal getValorCompraUnidad() {
         return valorCompraUnidad;
     }
 
-    public void setValorCompraUnidad(Double valorCompraUnidad) {
+    public void setValorCompraUnidad(BigDecimal valorCompraUnidad) {
         this.valorCompraUnidad = valorCompraUnidad;
     }
 

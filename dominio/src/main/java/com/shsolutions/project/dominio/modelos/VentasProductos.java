@@ -1,6 +1,7 @@
 package com.shsolutions.project.dominio.modelos;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -12,9 +13,9 @@ public class VentasProductos {
     private Integer idVenta;
     private Integer idBodegaProducto;
     private Integer cantidadVendida;
-    private Double valorVentaUnidad;
+    private BigDecimal valorVentaUnidad;
     private LocalDateTime fechaAgenda;
-    private Integer indicadorHabilitado;
+    private Boolean indicadorHabilitado;
 
     public VentasProductos() {
     }
@@ -61,12 +62,12 @@ public class VentasProductos {
     }
 
     @Basic
-    @Column(name = "VentaUnidad")
-    public Double getValorVentaUnidad() {
+    @Column(name = "ValorVentaUnidad")
+    public BigDecimal getValorVentaUnidad() {
         return valorVentaUnidad;
     }
 
-    public void setValorVentaUnidad(Double valorVentaUnidad) {
+    public void setValorVentaUnidad(BigDecimal valorVentaUnidad) {
         this.valorVentaUnidad = valorVentaUnidad;
     }
 
@@ -82,11 +83,11 @@ public class VentasProductos {
 
     @Basic
     @Column(name = "IndicadorHabilitado")
-    public Integer getIndicadorHabilitado() {
+    public Boolean getIndicadorHabilitado() {
         return indicadorHabilitado;
     }
 
-    public void setIndicadorHabilitado(Integer indicadorHabilitado) {
+    public void setIndicadorHabilitado(Boolean indicadorHabilitado) {
         this.indicadorHabilitado = indicadorHabilitado;
     }
 

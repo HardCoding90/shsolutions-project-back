@@ -1,6 +1,7 @@
 package com.shsolutions.project.dominio.modelos;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.Objects;
 
 @Entity
@@ -8,7 +9,7 @@ import java.util.Objects;
 public class Ivas {
 
     private Integer idIva;
-    private Double valorPorcentaje;
+    private BigDecimal valorPorcentaje;
     private Boolean indicadorHabilitado;
 
     public Ivas() {
@@ -27,11 +28,11 @@ public class Ivas {
 
     @Basic
     @Column(name = "ValorPorcentaje")
-    public Double getValorPorcentaje() {
+    public BigDecimal getValorPorcentaje() {
         return valorPorcentaje;
     }
 
-    public void setValorPorcentaje(Double valorPorcentaje) {
+    public void setValorPorcentaje(BigDecimal valorPorcentaje) {
         this.valorPorcentaje = valorPorcentaje;
     }
 

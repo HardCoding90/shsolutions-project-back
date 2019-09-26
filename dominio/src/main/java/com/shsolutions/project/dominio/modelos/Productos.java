@@ -59,7 +59,7 @@ public class Productos {
     }
 
     @Basic
-    @Column(name = "IndicadoServicio")
+    @Column(name = "IndicadorServicio")
     public Boolean getIndicadorServicio() {
         return indicadorServicio;
     }

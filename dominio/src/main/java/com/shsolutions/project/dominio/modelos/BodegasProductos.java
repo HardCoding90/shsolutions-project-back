@@ -1,7 +1,8 @@
 package com.shsolutions.project.dominio.modelos;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.math.BigDecimal;
+import java.util.Objects;
 
 @Entity
 @Table(name = "bodegasproductos", catalog = "shsolutions")
@@ -13,12 +14,15 @@ public class BodegasProductos {
     private Integer stockMinimo;
     private Integer stockMaximo;
     private Integer cantidadExistente;
-    private Double valor;
+    private BigDecimal valor;
     private Boolean indicadorHabilitado;
 
     public BodegasProductos() {
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "IdBodegaProducto")
     public Integer getIdBodegaProducto() {
         return idBodegaProducto;
     }
@@ -27,6 +31,8 @@ public class BodegasProductos {
         this.idBodegaProducto = idBodegaProducto;
     }
 
+    @Basic
+    @Column(name = "IdBodega")
     public Integer getIdBodega() {
         return idBodega;
     }
@@ -35,6 +41,8 @@ public class BodegasProductos {
         this.idBodega = idBodega;
     }
 
+    @Basic
+    @Column(name = "IdProveedorProducto")
     public Integer getIdProveedorProducto() {
         return idProveedorProducto;
     }
@@ -43,6 +51,8 @@ public class BodegasProductos {
         this.idProveedorProducto = idProveedorProducto;
     }
 
+    @Basic
+    @Column(name = "StockMinimo")
     public Integer getStockMinimo() {
         return stockMinimo;
     }
@@ -51,6 +61,8 @@ public class BodegasProductos {
         this.stockMinimo = stockMinimo;
     }
 
+    @Basic
+    @Column(name = "StockMaximo")
     public Integer getStockMaximo() {
         return stockMaximo;
     }
@@ -59,6 +71,8 @@ public class BodegasProductos {
         this.stockMaximo = stockMaximo;
     }
 
+    @Basic
+    @Column(name = "CantidadExistente")
     public Integer getCantidadExistente() {
         return cantidadExistente;
     }
@@ -67,19 +81,43 @@ public class BodegasProductos {
         this.cantidadExistente = cantidadExistente;
     }
 
-    public Double getValor() {
+    @Basic
+    @Column(name = "Valor")
+    public BigDecimal getValor() {
         return valor;
     }
 
-    public void setValor(Double valor) {
+    public void setValor(BigDecimal valor) {
         this.valor = valor;
     }
 
+    @Basic
+    @Column(name = "IndicadorHabilitado")
     public Boolean getIndicadorHabilitado() {
         return indicadorHabilitado;
     }
 
     public void setIndicadorHabilitado(Boolean indicadorHabilitado) {
         this.indicadorHabilitado = indicadorHabilitado;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BodegasProductos that = (BodegasProductos) o;
+        return Objects.equals(getIdBodegaProducto(), that.getIdBodegaProducto()) &&
+                Objects.equals(getIdBodega(), that.getIdBodega()) &&
+                Objects.equals(getIdProveedorProducto(), that.getIdProveedorProducto()) &&
+                Objects.equals(getStockMinimo(), that.getStockMinimo()) &&
+                Objects.equals(getStockMaximo(), that.getStockMaximo()) &&
+                Objects.equals(getCantidadExistente(), that.getCantidadExistente()) &&
+                Objects.equals(getValor(), that.getValor()) &&
+                Objects.equals(getIndicadorHabilitado(), that.getIndicadorHabilitado());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getIdBodegaProducto(), getIdBodega(), getIdProveedorProducto(), getStockMinimo(), getStockMaximo(), getCantidadExistente(), getValor(), getIndicadorHabilitado());
     }
 }

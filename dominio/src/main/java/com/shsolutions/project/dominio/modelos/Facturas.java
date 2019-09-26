@@ -11,7 +11,7 @@ public class Facturas {
     private Integer idFactura;
     private Integer idVenta;
     private LocalDateTime fechaFactura;
-    private Double idIva;
+    private Integer idIva;
     private Boolean indicadorPagada;
     private Boolean indicadorHabilitado;
 
@@ -51,11 +51,11 @@ public class Facturas {
 
     @Basic
     @Column(name = "IdIva")
-    public Double getIdIva() {
+    public Integer getIdIva() {
         return idIva;
     }
 
-    public void setIdIva(Double idIva) {
+    public void setIdIva(Integer idIva) {
         this.idIva = idIva;
     }
 
