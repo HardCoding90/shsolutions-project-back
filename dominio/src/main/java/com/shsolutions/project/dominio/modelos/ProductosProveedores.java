@@ -1,6 +1,7 @@
 package com.shsolutions.project.dominio.modelos;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "productosproveedores", catalog = "shsolutions")
@@ -64,5 +65,22 @@ public class ProductosProveedores {
 
     public void setIndicadorHabilitado(Boolean indicadorHabilitado) {
         this.indicadorHabilitado = indicadorHabilitado;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ProductosProveedores that = (ProductosProveedores) o;
+        return Objects.equals(getIdProductoProveedor(), that.getIdProductoProveedor()) &&
+                Objects.equals(getIdProducto(), that.getIdProducto()) &&
+                Objects.equals(getIdProveedor(), that.getIdProveedor()) &&
+                Objects.equals(getValorUnidad(), that.getValorUnidad()) &&
+                Objects.equals(getIndicadorHabilitado(), that.getIndicadorHabilitado());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getIdProductoProveedor(), getIdProducto(), getIdProveedor(), getValorUnidad(), getIndicadorHabilitado());
     }
 }

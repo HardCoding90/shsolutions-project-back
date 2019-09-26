@@ -2,6 +2,7 @@ package com.shsolutions.project.dominio.modelos;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Entity
 @Table(name = "ordenes", catalog = "shsolutions")
@@ -65,5 +66,22 @@ public class Ordenes {
 
     public void setIndicadorHabilitado(Boolean indicadorHabilitado) {
         this.indicadorHabilitado = indicadorHabilitado;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Ordenes ordenes = (Ordenes) o;
+        return Objects.equals(getIdOrden(), ordenes.getIdOrden()) &&
+                Objects.equals(getIdBodega(), ordenes.getIdBodega()) &&
+                Objects.equals(getFechaOrden(), ordenes.getFechaOrden()) &&
+                Objects.equals(getIndicadorRecibida(), ordenes.getIndicadorRecibida()) &&
+                Objects.equals(getIndicadorHabilitado(), ordenes.getIndicadorHabilitado());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getIdOrden(), getIdBodega(), getFechaOrden(), getIndicadorRecibida(), getIndicadorHabilitado());
     }
 }
