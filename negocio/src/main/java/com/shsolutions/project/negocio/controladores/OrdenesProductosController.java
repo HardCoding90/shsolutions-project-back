@@ -1,0 +1,43 @@
+package com.shsolutions.project.negocio.controladores;
+
+import com.shsolutions.project.negocio.modelos.OrdenesProductos;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Arrays;
+import java.util.List;
+
+import static com.shsolutions.project.negocio.utilidades.Utilidades.DOMAIN;
+import static com.shsolutions.project.negocio.utilidades.Utilidades.restTemplate;
+
+@RestController
+@CrossOrigin
+@RequestMapping("/api/ordenesProductos")
+public class OrdenesProductosController {
+
+    private final String DOMAIN_URL = DOMAIN + "ordenesProductos";
+
+    @GetMapping("/findAll")
+    List<OrdenesProductos> findAll() {
+        return Arrays.asList(restTemplate.getForObject(DOMAIN_URL + "/findAll", OrdenesProductos[].class));
+    }
+
+    @GetMapping("/findAll/enabled")
+    List<OrdenesProductos> findAllEnabled() {
+        return Arrays.asList(restTemplate.getForObject(DOMAIN_URL + "/findAll/enabled", OrdenesProductos[].class));
+    }
+
+    @GetMapping("/findById/{id}")
+    OrdenesProductos findAll(@PathVariable Integer id) {
+        return restTemplate.getForObject(DOMAIN_URL + "/findById/" + id, OrdenesProductos.class);
+    }
+
+    @PostMapping()
+    OrdenesProductos save(@RequestBody OrdenesProductos ordenesProductos) {
+        return restTemplate.postForObject(DOMAIN_URL, ordenesProductos, OrdenesProductos.class);
+    }
+
+    @PutMapping()
+    OrdenesProductos update(@RequestBody OrdenesProductos ordenesProductos) {
+        return restTemplate.postForObject(DOMAIN_URL, ordenesProductos, OrdenesProductos.class);
+    }
+}
