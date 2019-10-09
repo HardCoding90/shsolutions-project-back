@@ -29,6 +29,11 @@ public class DepartamentosController {
         return departamentosRepository.findById(id).orElse(null);
     }
 
+    @GetMapping("/pais/{idPais}")
+    List<Departamentos> findByPais(@PathVariable Integer idPais) {
+        return departamentosRepository.findByIndicadorHabilitadoTrueAndIdPais(idPais);
+    }
+
     @PostMapping()
     Departamentos save(@RequestBody Departamentos departamentos) {
         return departamentosRepository.save(departamentos);

@@ -34,6 +34,11 @@ public class DepartamentosController {
         return restTemplate.getForObject(DOMAIN_URL + "/findById/" + id,Departamentos.class);
     }
 
+    @GetMapping("/pais/{idPais}")
+    List<Departamentos> findByPais(@PathVariable Integer idPais){
+        return Arrays.asList(restTemplate.getForObject(DOMAIN_URL + "/pais/" + idPais,Departamentos[].class));
+    }
+
     @PostMapping()
     Departamentos save(@RequestBody Departamentos departamentos){
         return restTemplate.postForObject(DOMAIN_URL ,departamentos,Departamentos.class);

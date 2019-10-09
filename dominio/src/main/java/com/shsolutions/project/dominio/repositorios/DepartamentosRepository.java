@@ -9,4 +9,6 @@ public interface DepartamentosRepository extends JpaRepository<Departamentos,Int
 
     List<Departamentos> findAllByIndicadorHabilitadoTrue();
 
+    List<Departamentos> findByIndicadorHabilitadoTrueAndIdPais(Integer idPais);
+
 }
