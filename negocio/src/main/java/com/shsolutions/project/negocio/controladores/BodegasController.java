@@ -27,7 +27,7 @@ public class BodegasController {
     }
 
     @GetMapping("/findById/{id}")
-    Bodegas findAll(@PathVariable Integer id){
+    Bodegas findOne(@PathVariable Integer id){
         return restTemplate.getForObject(DOMAIN_URL + "/findById/" + id,Bodegas.class);
     }
 

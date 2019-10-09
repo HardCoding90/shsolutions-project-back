@@ -26,7 +26,7 @@ public class RolesController {
     }
 
     @GetMapping("/findById/{id}")
-    Roles findAll(@PathVariable Integer id){
+    Roles findOne(@PathVariable Integer id){
         return restTemplate.getForObject(DOMAIN_URL + "/findById/" + id,Roles.class);
     }
 

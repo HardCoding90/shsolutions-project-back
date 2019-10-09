@@ -27,7 +27,7 @@ public class IvasController {
     }
 
     @GetMapping("/findById/{id}")
-    Ivas findAll(@PathVariable Integer id){
+    Ivas findOne(@PathVariable Integer id){
         return restTemplate.getForObject(DOMAIN_URL + "/findById/" + id,Ivas.class);
     }
 

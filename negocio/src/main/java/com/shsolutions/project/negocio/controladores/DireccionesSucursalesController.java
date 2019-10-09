@@ -26,7 +26,7 @@ public class DireccionesSucursalesController {
     }
 
     @GetMapping("/findById/{id}")
-    DireccionesSucursales findAll(@PathVariable Integer id) {
+    DireccionesSucursales findOne(@PathVariable Integer id) {
         return restTemplate.getForObject(DOMAIN_URL + "/findById/" + id, DireccionesSucursales.class);
     }
 

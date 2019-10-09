@@ -30,7 +30,7 @@ public class DepartamentosController {
     }
 
     @GetMapping("/findById/{id}")
-    Departamentos findAll(@PathVariable Integer id){
+    Departamentos findOne(@PathVariable Integer id){
         return restTemplate.getForObject(DOMAIN_URL + "/findById/" + id,Departamentos.class);
     }
 

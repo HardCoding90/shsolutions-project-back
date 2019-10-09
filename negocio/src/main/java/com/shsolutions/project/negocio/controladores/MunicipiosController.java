@@ -29,7 +29,7 @@ public class MunicipiosController {
     }
 
     @GetMapping("/findById/{id}")
-    Municipios findAll(@PathVariable Integer id){
+    Municipios findOne(@PathVariable Integer id){
         return restTemplate.getForObject(DOMAIN_URL + "/findById/" + id,Municipios.class);
     }
 

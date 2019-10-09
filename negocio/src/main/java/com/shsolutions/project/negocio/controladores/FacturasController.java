@@ -27,7 +27,7 @@ public class FacturasController {
     }
 
     @GetMapping("/findById/{id}")
-    Facturas findAll(@PathVariable Integer id){
+    Facturas findOne(@PathVariable Integer id){
         return restTemplate.getForObject(DOMAIN_URL + "/findById/" + id,Facturas.class);
     }
 

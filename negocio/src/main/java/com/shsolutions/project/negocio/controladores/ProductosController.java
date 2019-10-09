@@ -27,7 +27,7 @@ public class ProductosController {
     }
 
     @GetMapping("/findById/{id}")
-    Productos findAll(@PathVariable Integer id) {
+    Productos findOne(@PathVariable Integer id) {
         return restTemplate.getForObject(DOMAIN_URL + "/findById/" + id, Productos.class);
     }
 

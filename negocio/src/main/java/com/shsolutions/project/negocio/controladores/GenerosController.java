@@ -26,7 +26,7 @@ public class GenerosController {
     }
 
     @GetMapping("/findById/{id}")
-    Generos findAll(@PathVariable Integer id){
+    Generos findOne(@PathVariable Integer id){
         return restTemplate.getForObject(DOMAIN_URL + "/findById/" + id,Generos.class);
     }
 
