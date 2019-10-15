@@ -10,6 +10,7 @@ import java.util.List;
 import static com.shsolutions.project.negocio.utilidades.Utilidades.DOMAIN;
 import static com.shsolutions.project.negocio.utilidades.Utilidades.restTemplate;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/direcciones")
 public class DireccionesController {

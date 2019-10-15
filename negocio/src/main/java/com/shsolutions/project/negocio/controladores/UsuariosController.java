@@ -11,6 +11,7 @@ import static com.shsolutions.project.negocio.security.SecurityConfig.codificarC
 import static com.shsolutions.project.negocio.utilidades.Utilidades.DOMAIN;
 import static com.shsolutions.project.negocio.utilidades.Utilidades.restTemplate;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/usuarios")
 public class UsuariosController {
