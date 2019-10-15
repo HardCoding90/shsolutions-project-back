@@ -5,6 +5,7 @@ public class Paises {
     private Integer idPais;
     private String codigo;
     private String pais;
+    private Boolean indicadorHabilitado;
 
     public Integer getIdPais() {
         return idPais;
@@ -28,5 +29,13 @@ public class Paises {
 
     public void setPais(String pais) {
         this.pais = pais;
+    }
+
+    public Boolean getIndicadorHabilitado() {
+        return indicadorHabilitado;
+    }
+
+    public void setIndicadorHabilitado(Boolean indicadorHabilitado) {
+        this.indicadorHabilitado = indicadorHabilitado;
     }
 }

@@ -6,6 +6,7 @@ public class Municipios {
     private Integer idDepartamento;
     private String codigo;
     private String ciudad;
+    private Boolean indicadorHabilitado;
 
     private Departamentos departamentos;
 
@@ -47,5 +48,13 @@ public class Municipios {
 
     public void setDepartamentos(Departamentos departamentos) {
         this.departamentos = departamentos;
+    }
+
+    public Boolean getIndicadorHabilitado() {
+        return indicadorHabilitado;
+    }
+
+    public void setIndicadorHabilitado(Boolean indicadorHabilitado) {
+        this.indicadorHabilitado = indicadorHabilitado;
     }
 }

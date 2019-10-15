@@ -6,6 +6,7 @@ public class Departamentos {
     private Integer idPais;
     private String codigo;
     private String departamento;
+    private Boolean indicadorHabilitado;
 
     public Integer getIdDepartamento() {
         return idDepartamento;
@@ -37,5 +38,13 @@ public class Departamentos {
 
     public void setDepartamento(String departamento) {
         this.departamento = departamento;
+    }
+
+    public Boolean getIndicadorHabilitado() {
+        return indicadorHabilitado;
+    }
+
+    public void setIndicadorHabilitado(Boolean indicadorHabilitado) {
+        this.indicadorHabilitado = indicadorHabilitado;
     }
 }
