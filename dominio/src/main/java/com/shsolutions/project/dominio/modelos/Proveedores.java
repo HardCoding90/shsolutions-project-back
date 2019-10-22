@@ -1,6 +1,7 @@
 package com.shsolutions.project.dominio.modelos;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -66,7 +67,7 @@ public class Proveedores {
     }
 
     public void setFechaRegistro(LocalDate fechaRegistro) {
-        this.fechaRegistro = fechaRegistro;
+        this.fechaRegistro = LocalDate.now();
     }
 
     @Basic
@@ -76,7 +77,7 @@ public class Proveedores {
     }
 
     public void setIndicadorHabilitado(Boolean indicadorHabilitado) {
-        this.indicadorHabilitado = indicadorHabilitado;
+        this.indicadorHabilitado = true;
     }
 
     @Override
