@@ -9,7 +9,7 @@ import java.util.List;
 import static com.shsolutions.project.negocio.utilidades.Utilidades.DOMAIN;
 import static com.shsolutions.project.negocio.utilidades.Utilidades.restTemplate;
 
-@CrossOrigin
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/proveedores")
 public class ProveedoresController {
@@ -19,6 +19,10 @@ public class ProveedoresController {
     @GetMapping("/findAll")
     List<Proveedores> findAll() {
         return Arrays.asList(restTemplate.getForObject(DOMAIN_URL + "/findAll", Proveedores[].class));
+    }
+    @GetMapping("/cascaron")
+    Proveedores cascaron() {
+        return new Proveedores();
     }
 
     @GetMapping("/findAll/enabled")
