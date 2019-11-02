@@ -6,21 +6,21 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="negocio" />
         <module name="dominio" />
+        <module name="negocio" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="dominio" target="1.8" />
       <module name="negocio" target="1.8" />
-      <module name="project" target="1.8" />
+      <module name="shsolutions-project" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="dominio" options="-parameters" />
       <module name="negocio" options="-parameters" />
-      <module name="project" options="-parameters" />
+      <module name="shsolutions-project" options="-parameters" />
     </option>
   </component>
 </project>

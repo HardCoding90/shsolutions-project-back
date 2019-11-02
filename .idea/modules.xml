@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/dominio/dominio.iml" filepath="$PROJECT_DIR$/dominio/dominio.iml" />
       <module fileurl="file://$PROJECT_DIR$/negocio/negocio.iml" filepath="$PROJECT_DIR$/negocio/negocio.iml" />
-      <module fileurl="file://$PROJECT_DIR$/project.iml" filepath="$PROJECT_DIR$/project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shsolutions-project.iml" filepath="$PROJECT_DIR$/shsolutions-project.iml" />
     </modules>
   </component>
 </project>
