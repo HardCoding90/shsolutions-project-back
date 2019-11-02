@@ -10,11 +10,16 @@ import static com.shsolutions.project.negocio.utilidades.Utilidades.DOMAIN;
 import static com.shsolutions.project.negocio.utilidades.Utilidades.restTemplate;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/ordenesProductos")
 public class OrdenesProductosController {
 
     private final String DOMAIN_URL = DOMAIN + "ordenesProductos";
+
+    @GetMapping("/cascaron")
+    OrdenesProductos cascaron() {
+        return new OrdenesProductos();
+    }
 
     @GetMapping("/findAll")
     List<OrdenesProductos> findAll() {

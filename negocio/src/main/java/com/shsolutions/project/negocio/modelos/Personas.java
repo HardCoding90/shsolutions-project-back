@@ -10,14 +10,74 @@ public class Personas {
     private String segundoNombre;
     private String primerApellido;
     private String segundoApellido;
-    private Integer idGenero;
+    private String genero;
     private LocalDate fechaNacimiento;
-    private Integer idTipoDocumento;
     private String numeroDocumento;
     private String email;
+    private String telefono;
+    private String celular;
+    private String direccion;
+    private String barrio;
+    private Integer idMunicipio;
+    private Boolean indicadorCliente;
     private LocalDateTime fechaRegistro;
-    private Boolean indicadorAdministrativo;
     private Boolean indicadorHabilitado;
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getCelular() {
+        return celular;
+    }
+
+    public void setCelular(String celular) {
+        this.celular = celular;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public String getBarrio() {
+        return barrio;
+    }
+
+    public void setBarrio(String barrio) {
+        this.barrio = barrio;
+    }
+
+    public Integer getIdMunicipio() {
+        return idMunicipio;
+    }
+
+    public void setIdMunicipio(Integer idMunicipio) {
+        this.idMunicipio = idMunicipio;
+    }
+
+    public Boolean getIndicadorCliente() {
+        return indicadorCliente;
+    }
+
+    public void setIndicadorCliente(Boolean indicadorCliente) {
+        this.indicadorCliente = indicadorCliente;
+    }
 
     public Integer getIdPersona() {
         return idPersona;
@@ -59,28 +119,12 @@ public class Personas {
         this.segundoApellido = segundoApellido;
     }
 
-    public Integer getIdGenero() {
-        return idGenero;
-    }
-
-    public void setIdGenero(Integer idGenero) {
-        this.idGenero = idGenero;
-    }
-
     public LocalDate getFechaNacimiento() {
         return fechaNacimiento;
     }
 
     public void setFechaNacimiento(LocalDate fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
-    }
-
-    public Integer getIdTipoDocumento() {
-        return idTipoDocumento;
-    }
-
-    public void setIdTipoDocumento(Integer idTipoDocumento) {
-        this.idTipoDocumento = idTipoDocumento;
     }
 
     public String getNumeroDocumento() {
@@ -105,14 +149,6 @@ public class Personas {
 
     public void setFechaRegistro(LocalDateTime fechaRegistro) {
         this.fechaRegistro = fechaRegistro;
-    }
-
-    public Boolean getIndicadorAdministrativo() {
-        return indicadorAdministrativo;
-    }
-
-    public void setIndicadorAdministrativo(Boolean indicadorAdministrativo) {
-        this.indicadorAdministrativo = indicadorAdministrativo;
     }
 
     public Boolean getIndicadorHabilitado() {

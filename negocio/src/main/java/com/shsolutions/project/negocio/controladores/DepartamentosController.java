@@ -13,11 +13,16 @@ import java.util.Arrays;
 import java.util.List;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/departamentos")
 public class DepartamentosController {
 
     private final String DOMAIN_URL = DOMAIN + "departamentos";
+
+    @GetMapping("/cascaron")
+    Departamentos cascaron() {
+        return new Departamentos();
+    }
 
     @GetMapping("/findAll")
     List<Departamentos> findAll(){

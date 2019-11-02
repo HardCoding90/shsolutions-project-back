@@ -11,12 +11,17 @@ import static com.shsolutions.project.negocio.security.SecurityConfig.codificarC
 import static com.shsolutions.project.negocio.utilidades.Utilidades.DOMAIN;
 import static com.shsolutions.project.negocio.utilidades.Utilidades.restTemplate;
 
-@CrossOrigin
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/usuarios")
 public class UsuariosController {
 
     private String DOMAIN_URL = DOMAIN + "usuarios";
+
+    @GetMapping("/cascaron")
+    Usuarios cascaron() {
+        return new Usuarios();
+    }
 
     @GetMapping("/findAll")
     List<Usuarios> findAll() {

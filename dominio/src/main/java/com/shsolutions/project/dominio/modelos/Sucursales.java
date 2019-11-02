@@ -8,6 +8,12 @@ import java.util.Objects;
 public class Sucursales {
 
     private Integer idSucursal;
+    private String email;
+    private String telefono;
+    private String celular;
+    private String direccion;
+    private String barrio;
+    private Integer idMunicipio;
     private Boolean indicadorHabilitado;
 
     public Sucursales() {
@@ -34,17 +40,83 @@ public class Sucursales {
         this.indicadorHabilitado = indicadorHabilitado;
     }
 
+    @Basic
+    @Column(name = "Telefono")
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    @Basic
+    @Column(name = "Celular")
+    public String getCelular() {
+        return celular;
+    }
+
+    public void setCelular(String celular) {
+        this.celular = celular;
+    }
+
+    @Basic
+    @Column(name = "Direccion")
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    @Basic
+    @Column(name = "Barrio")
+    public String getBarrio() {
+        return barrio;
+    }
+
+    public void setBarrio(String barrio) {
+        this.barrio = barrio;
+    }
+
+    @Basic
+    @Column(name = "Municipio")
+    public Integer getIdMunicipio() {
+        return idMunicipio;
+    }
+
+    public void setIdMunicipio(Integer idMunicipio) {
+        this.idMunicipio = idMunicipio;
+    }
+
+    @Basic
+    @Column(name = "Email")
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Sucursales that = (Sucursales) o;
         return Objects.equals(getIdSucursal(), that.getIdSucursal()) &&
+                Objects.equals(getEmail(), that.getEmail()) &&
+                Objects.equals(getTelefono(), that.getTelefono()) &&
+                Objects.equals(getCelular(), that.getCelular()) &&
+                Objects.equals(getDireccion(), that.getDireccion()) &&
+                Objects.equals(getBarrio(), that.getBarrio()) &&
+                Objects.equals(getIdMunicipio(), that.getIdMunicipio()) &&
                 Objects.equals(getIndicadorHabilitado(), that.getIndicadorHabilitado());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getIdSucursal(), getIndicadorHabilitado());
+        return Objects.hash(getIdSucursal(), getEmail(), getTelefono(), getCelular(), getDireccion(), getBarrio(), getIdMunicipio(), getIndicadorHabilitado());
     }
 }

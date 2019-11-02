@@ -11,6 +11,7 @@ public class Roles {
     private String codigo;
     private String rol;
     private Boolean indicadorHabilitado;
+    private Boolean indicadorAdministrativo;
 
     public Roles() {
     }
@@ -54,6 +55,16 @@ public class Roles {
 
     public void setIndicadorHabilitado(Boolean indicadorHabilitado) {
         this.indicadorHabilitado = indicadorHabilitado;
+    }
+
+    @Basic
+    @Column(name = "IndicadorAdministrativo")
+    public Boolean getIndicadorAdministrativo() {
+        return indicadorAdministrativo;
+    }
+
+    public void setIndicadorAdministrativo(Boolean indicadorAdministrativo) {
+        this.indicadorAdministrativo = indicadorAdministrativo;
     }
 
     @Override

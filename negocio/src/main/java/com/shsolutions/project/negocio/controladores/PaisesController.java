@@ -9,11 +9,16 @@ import java.util.List;
 import static com.shsolutions.project.negocio.utilidades.Utilidades.*;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/paises")
 public class PaisesController {
 
     private String DOMAIN_URL = DOMAIN + "paises";
+
+    @GetMapping("/cascaron")
+    Paises cascaron() {
+        return new Paises();
+    }
 
     @GetMapping("/findAll")
     List<Paises> findAll() {

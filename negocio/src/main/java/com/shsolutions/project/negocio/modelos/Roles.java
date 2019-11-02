@@ -5,6 +5,7 @@ public class Roles {
     private Integer idRol;
     private String codigo;
     private String rol;
+    private Boolean indicadorAdministrativo;
     private Boolean indicadorHabilitado;
 
     public Integer getIdRol() {
@@ -37,5 +38,13 @@ public class Roles {
 
     public void setIndicadorHabilitado(Boolean indicadorHabilitado) {
         this.indicadorHabilitado = indicadorHabilitado;
+    }
+
+    public Boolean getIndicadorAdministrativo() {
+        return indicadorAdministrativo;
+    }
+
+    public void setIndicadorAdministrativo(Boolean indicadorAdministrativo) {
+        this.indicadorAdministrativo = indicadorAdministrativo;
     }
 }

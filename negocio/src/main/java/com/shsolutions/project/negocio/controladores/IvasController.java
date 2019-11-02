@@ -10,11 +10,16 @@ import static com.shsolutions.project.negocio.utilidades.Utilidades.DOMAIN;
 import static com.shsolutions.project.negocio.utilidades.Utilidades.restTemplate;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/ivas")
 public class IvasController {
 
     private final String DOMAIN_URL = DOMAIN + "ivas";
+
+    @GetMapping("/cascaron")
+    Ivas cascaron() {
+        return new Ivas();
+    }
 
     @GetMapping("/findAll")
     List<Ivas> findAll(){

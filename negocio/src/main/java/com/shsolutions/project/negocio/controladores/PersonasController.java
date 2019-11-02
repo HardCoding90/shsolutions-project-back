@@ -9,12 +9,17 @@ import java.util.List;
 import static com.shsolutions.project.negocio.utilidades.Utilidades.DOMAIN;
 import static com.shsolutions.project.negocio.utilidades.Utilidades.restTemplate;
 
-@CrossOrigin
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/personas")
 public class PersonasController {
 
     private final String DOMAIN_URL = DOMAIN + "personas";
+
+    @GetMapping("/cascaron")
+    Personas cascaron() {
+        return new Personas();
+    }
 
     @GetMapping("/findAll")
     List<Personas> findAll(){

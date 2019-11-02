@@ -14,13 +14,17 @@ public class Personas {
     private String segundoNombre;
     private String primerApellido;
     private String segundoApellido;
-    private Integer idGenero;
+    private String genero;
     private LocalDate fechaNacimiento;
-    private Integer idTipoDocumento;
     private String numeroDocumento;
     private String email;
+    private String telefono;
+    private String celular;
+    private String direccion;
+    private String barrio;
+    private Integer idMunicipio;
+    private Boolean indicadorCliente;
     private LocalDateTime fechaRegistro;
-    private Boolean indicadorAdministrativo;
     private Boolean indicadorHabilitado;
 
     public Personas() {
@@ -79,12 +83,12 @@ public class Personas {
 
     @Basic
     @Column(name = "IdGenero")
-    public Integer getIdGenero() {
-        return idGenero;
+    public String getGenero() {
+        return genero;
     }
 
-    public void setIdGenero(Integer idGenero) {
-        this.idGenero = idGenero;
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 
     @Basic
@@ -95,16 +99,6 @@ public class Personas {
 
     public void setFechaNacimiento(LocalDate fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
-    }
-
-    @Basic
-    @Column(name = "IdTipoDocumento")
-    public Integer getIdTipoDocumento() {
-        return idTipoDocumento;
-    }
-
-    public void setIdTipoDocumento(Integer idTipoDocumento) {
-        this.idTipoDocumento = idTipoDocumento;
     }
 
     @Basic
@@ -138,16 +132,6 @@ public class Personas {
     }
 
     @Basic
-    @Column(name = "IndicadorAdministrativo")
-    public Boolean getIndicadorAdministrativo() {
-        return indicadorAdministrativo;
-    }
-
-    public void setIndicadorAdministrativo(Boolean indicadorAdministrativo) {
-        this.indicadorAdministrativo = indicadorAdministrativo;
-    }
-
-    @Basic
     @Column(name = "IndicadorHabilitado")
     public Boolean getIndicadorHabilitado() {
         return indicadorHabilitado;
@@ -157,6 +141,65 @@ public class Personas {
         this.indicadorHabilitado = indicadorHabilitado;
     }
 
+    @Basic
+    @Column(name = "Telefono")
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    @Basic
+    @Column(name = "Celular")
+    public String getCelular() {
+        return celular;
+    }
+
+    public void setCelular(String celular) {
+        this.celular = celular;
+    }
+
+    @Basic
+    @Column(name = "Direccion")
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    @Basic
+    @Column(name = "Barrio")
+    public String getBarrio() {
+        return barrio;
+    }
+
+    public void setBarrio(String barrio) {
+        this.barrio = barrio;
+    }
+
+    @Basic
+    @Column(name = "Municipio")
+    public Integer getIdMunicipio() {
+        return idMunicipio;
+    }
+
+    public void setIdMunicipio(Integer idMunicipio) {
+        this.idMunicipio = idMunicipio;
+    }
+
+    @Basic
+    @Column(name = "IndicadorCliente")
+    public Boolean getIndicadorCliente() {
+        return indicadorCliente;
+    }
+
+    public void setIndicadorCliente(Boolean indicadorCliente) {
+        this.indicadorCliente = indicadorCliente;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -168,18 +211,22 @@ public class Personas {
                 Objects.equals(getSegundoNombre(), personas.getSegundoNombre()) &&
                 Objects.equals(getPrimerApellido(), personas.getPrimerApellido()) &&
                 Objects.equals(getSegundoApellido(), personas.getSegundoApellido()) &&
-                Objects.equals(getIdGenero(), personas.getIdGenero()) &&
+                Objects.equals(getGenero(), personas.getGenero()) &&
                 Objects.equals(getFechaNacimiento(), personas.getFechaNacimiento()) &&
-                Objects.equals(getIdTipoDocumento(), personas.getIdTipoDocumento()) &&
                 Objects.equals(getNumeroDocumento(), personas.getNumeroDocumento()) &&
                 Objects.equals(getEmail(), personas.getEmail()) &&
+                Objects.equals(getTelefono(), personas.getTelefono()) &&
+                Objects.equals(getCelular(), personas.getCelular()) &&
+                Objects.equals(getDireccion(), personas.getDireccion()) &&
+                Objects.equals(getBarrio(), personas.getBarrio()) &&
+                Objects.equals(getIdMunicipio(), personas.getIdMunicipio()) &&
+                Objects.equals(getIndicadorCliente(), personas.getIndicadorCliente()) &&
                 Objects.equals(getFechaRegistro(), personas.getFechaRegistro()) &&
-                Objects.equals(getIndicadorAdministrativo(), personas.getIndicadorAdministrativo()) &&
                 Objects.equals(getIndicadorHabilitado(), personas.getIndicadorHabilitado());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getIdPersona(), getPrimerNombre(), getSegundoNombre(), getPrimerApellido(), getSegundoApellido(), getIdGenero(), getFechaNacimiento(), getIdTipoDocumento(), getNumeroDocumento(), getEmail(), getFechaRegistro(), getIndicadorAdministrativo(), getIndicadorHabilitado());
+        return Objects.hash(getIdPersona(), getPrimerNombre(), getSegundoNombre(), getPrimerApellido(), getSegundoApellido(), getGenero(), getFechaNacimiento(), getNumeroDocumento(), getEmail(), getTelefono(), getCelular(), getDireccion(), getBarrio(), getIdMunicipio(), getIndicadorCliente(), getFechaRegistro(), getIndicadorHabilitado());
     }
 }

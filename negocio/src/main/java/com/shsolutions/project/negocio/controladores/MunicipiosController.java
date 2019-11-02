@@ -12,11 +12,16 @@ import java.util.Arrays;
 import java.util.List;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/municipios")
 public class MunicipiosController {
 
     private final String DOMAIN_URL = DOMAIN + "municipios";
+
+    @GetMapping("/cascaron")
+    Municipios cascaron() {
+        return new Municipios();
+    }
 
     @GetMapping("/findAll")
     List<Municipios> findAll(){
