@@ -36,6 +36,11 @@ public class ProductosProveedoresController {
         return restTemplate.getForObject(DOMAIN_URL + "/findById/" + id, ProductosProveedores.class);
     }
 
+    @PostMapping("/saveAll")
+    List<ProductosProveedores> saveAll(@RequestBody List<ProductosProveedores> productosProveedores) {
+        return Arrays.asList(restTemplate.postForObject(DOMAIN_URL + "/saveAll", productosProveedores, ProductosProveedores[].class));
+    }
+
     @PostMapping()
     ProductosProveedores save(@RequestBody ProductosProveedores productosProveedores) {
         return restTemplate.postForObject(DOMAIN_URL, productosProveedores, ProductosProveedores.class);

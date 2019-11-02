@@ -1,6 +1,7 @@
 package com.shsolutions.project.dominio.modelos;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.Objects;
 
 @Entity
@@ -10,7 +11,9 @@ public class Productos {
     private Integer idProducto;
     private String producto;
     private String marca;
+    private String referencia;
     private String descripcion;
+    private BigDecimal valorUnidadVenta;
     private Boolean indicadorServicio;
     private Boolean indicadorHabilitado;
 
@@ -46,6 +49,26 @@ public class Productos {
 
     public void setMarca(String marca) {
         this.marca = marca;
+    }
+
+    @Basic
+    @Column(name = "Referencia")
+    public String getReferencia() {
+        return referencia;
+    }
+
+    public void setReferencia(String referencia) {
+        this.referencia = referencia;
+    }
+
+    @Basic
+    @Column(name = "ValorUnidadVenta")
+    public BigDecimal getValorUnidadVenta() {
+        return valorUnidadVenta;
+    }
+
+    public void setValorUnidadVenta(BigDecimal valorUnidadVenta) {
+        this.valorUnidadVenta = valorUnidadVenta;
     }
 
     @Basic

@@ -1,7 +1,6 @@
 package com.shsolutions.project.dominio.modelos;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -12,7 +11,7 @@ public class Municipios {
     private Integer idMunicipio;
     private Integer idDepartamento;
     private String codigo;
-    private String ciudad;
+    private String municipio;
     private Boolean indicadorHabilitado;
 
     private Departamentos departamentos;
@@ -52,13 +51,13 @@ public class Municipios {
     }
 
     @Basic
-    @Column(name = "Ciudad")
-    public String getCiudad() {
-        return ciudad;
+    @Column(name = "Municipio")
+    public String getMunicipio() {
+        return municipio;
     }
 
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
+    public void setMunicipio(String municipio) {
+        this.municipio = municipio;
     }
 
     @Basic
@@ -90,12 +89,12 @@ public class Municipios {
         return Objects.equals(getIdMunicipio(), that.getIdMunicipio()) &&
                 Objects.equals(getIdDepartamento(), that.getIdDepartamento()) &&
                 Objects.equals(getCodigo(), that.getCodigo()) &&
-                Objects.equals(getCiudad(), that.getCiudad()) &&
+                Objects.equals(getMunicipio(), that.getMunicipio()) &&
                 Objects.equals(getIndicadorHabilitado(), that.getIndicadorHabilitado());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getIdMunicipio(), getIdDepartamento(), getCodigo(), getCiudad(), getIndicadorHabilitado());
+        return Objects.hash(getIdMunicipio(), getIdDepartamento(), getCodigo(), getMunicipio(), getIndicadorHabilitado());
     }
 }

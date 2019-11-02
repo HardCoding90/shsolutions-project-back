@@ -82,7 +82,7 @@ public class Personas {
     }
 
     @Basic
-    @Column(name = "IdGenero")
+    @Column(name = "Genero")
     public String getGenero() {
         return genero;
     }
@@ -182,7 +182,7 @@ public class Personas {
     }
 
     @Basic
-    @Column(name = "Municipio")
+    @Column(name = "IdMunicipio")
     public Integer getIdMunicipio() {
         return idMunicipio;
     }

@@ -81,7 +81,7 @@ public class Sucursales {
     }
 
     @Basic
-    @Column(name = "Municipio")
+    @Column(name = "IdMunicipio")
     public Integer getIdMunicipio() {
         return idMunicipio;
     }

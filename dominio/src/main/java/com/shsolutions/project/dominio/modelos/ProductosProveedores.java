@@ -11,7 +11,7 @@ public class ProductosProveedores {
     private Integer idProductoProveedor;
     private Integer idProducto;
     private Integer idProveedor;
-    private BigDecimal valorUnidad;
+    private BigDecimal valorUnidadCompra;
     private Boolean indicadorHabilitado;
 
     public ProductosProveedores() {
@@ -49,13 +49,13 @@ public class ProductosProveedores {
     }
 
     @Basic
-    @Column(name = "ValorUnidad")
-    public BigDecimal getValorUnidad() {
-        return valorUnidad;
+    @Column(name = "ValorUnidadCompra")
+    public BigDecimal getValorUnidadCompra() {
+        return valorUnidadCompra;
     }
 
-    public void setValorUnidad(BigDecimal valorUnidad) {
-        this.valorUnidad = valorUnidad;
+    public void setValorUnidadCompra(BigDecimal valorUnidadCompra) {
+        this.valorUnidadCompra = valorUnidadCompra;
     }
 
     @Basic
@@ -76,12 +76,12 @@ public class ProductosProveedores {
         return Objects.equals(getIdProductoProveedor(), that.getIdProductoProveedor()) &&
                 Objects.equals(getIdProducto(), that.getIdProducto()) &&
                 Objects.equals(getIdProveedor(), that.getIdProveedor()) &&
-                Objects.equals(getValorUnidad(), that.getValorUnidad()) &&
+                Objects.equals(getValorUnidadCompra(), that.getValorUnidadCompra()) &&
                 Objects.equals(getIndicadorHabilitado(), that.getIndicadorHabilitado());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getIdProductoProveedor(), getIdProducto(), getIdProveedor(), getValorUnidad(), getIndicadorHabilitado());
+        return Objects.hash(getIdProductoProveedor(), getIdProducto(), getIdProveedor(), getValorUnidadCompra(), getIndicadorHabilitado());
     }
 }

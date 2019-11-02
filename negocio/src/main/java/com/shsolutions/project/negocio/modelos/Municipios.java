@@ -5,7 +5,7 @@ public class Municipios {
     private Integer idMunicipio;
     private Integer idDepartamento;
     private String codigo;
-    private String ciudad;
+    private String municipio;
     private Boolean indicadorHabilitado;
 
     private Departamentos departamentos;
@@ -34,12 +34,12 @@ public class Municipios {
         this.codigo = codigo;
     }
 
-    public String getCiudad() {
-        return ciudad;
+    public String getMunicipio() {
+        return municipio;
     }
 
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
+    public void setMunicipio(String municipio) {
+        this.municipio = municipio;
     }
 
     public Departamentos getDepartamentos() {

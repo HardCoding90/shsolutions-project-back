@@ -29,6 +29,11 @@ public class ProductosProveedoresController {
         return productosProveedoresRepository.findById(id).orElse(null);
     }
 
+    @PostMapping("/saveAll")
+    List<ProductosProveedores> save(@RequestBody List<ProductosProveedores> productosProveedoresList) {
+        return productosProveedoresRepository.saveAll(productosProveedoresList);
+    }
+
     @PostMapping()
     ProductosProveedores save(@RequestBody ProductosProveedores productosProveedores) {
         return productosProveedoresRepository.save(productosProveedores);

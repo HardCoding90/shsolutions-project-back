@@ -8,8 +8,9 @@ public class ProductosProveedores {
     private Integer idProductoProveedor;
     private Integer idProducto;
     private Integer idProveedor;
-    private BigDecimal valorUnidad;
+    private BigDecimal valorUnidadCompra;
     private Boolean indicadorHabilitado;
+
     public Integer getIdProductoProveedor() {
         return idProductoProveedor;
     }
@@ -34,12 +35,12 @@ public class ProductosProveedores {
         this.idProveedor = idProveedor;
     }
 
-    public BigDecimal getValorUnidad() {
-        return valorUnidad;
+    public BigDecimal getValorUnidadCompra() {
+        return valorUnidadCompra;
     }
 
-    public void setValorUnidad(BigDecimal valorUnidad) {
-        this.valorUnidad = valorUnidad;
+    public void setValorUnidadCompra(BigDecimal valorUnidadCompra) {
+        this.valorUnidadCompra = valorUnidadCompra;
     }
 
     public Boolean getIndicadorHabilitado() {

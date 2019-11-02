@@ -1,5 +1,6 @@
 package com.shsolutions.project.negocio.modelos;
 
+import java.math.BigDecimal;
 import java.util.Objects;
 
 public class Productos {
@@ -7,7 +8,9 @@ public class Productos {
     private Integer idProducto;
     private String producto;
     private String marca;
+    private String referencia;
     private String descripcion;
+    private BigDecimal valorUnidadVenta;
     private Boolean indicadorServicio;
     private Boolean indicadorHabilitado;
 
@@ -35,6 +38,14 @@ public class Productos {
         this.marca = marca;
     }
 
+    public String getReferencia() {
+        return referencia;
+    }
+
+    public void setReferencia(String referencia) {
+        this.referencia = referencia;
+    }
+
     public String getDescripcion() {
         return descripcion;
     }
@@ -57,5 +68,13 @@ public class Productos {
 
     public void setIndicadorHabilitado(Boolean indicadorHabilitado) {
         this.indicadorHabilitado = indicadorHabilitado;
+    }
+
+    public BigDecimal getValorUnidadVenta() {
+        return valorUnidadVenta;
+    }
+
+    public void setValorUnidadVenta(BigDecimal valorUnidadVenta) {
+        this.valorUnidadVenta = valorUnidadVenta;
     }
 }
