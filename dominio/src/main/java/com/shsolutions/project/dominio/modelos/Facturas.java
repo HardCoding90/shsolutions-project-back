@@ -1,6 +1,6 @@
 package com.shsolutions.project.dominio.modelos;
 
-import com.shsolutions.project.dominio.configuracion.LocalDateConverter;
+import com.shsolutions.project.dominio.configuracion.LocalDateTimeConverter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -42,7 +42,7 @@ public class Facturas {
     }
 
     @Basic
-    @Convert(converter = LocalDateConverter.class)
+    @Convert(converter = LocalDateTimeConverter.class)
     @Column(name = "FechaFactura")
     public LocalDateTime getFechaFactura() {
         return fechaFactura;

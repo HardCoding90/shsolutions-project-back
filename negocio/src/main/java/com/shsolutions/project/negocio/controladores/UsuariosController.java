@@ -46,8 +46,8 @@ public class UsuariosController {
         return restTemplate.postForObject(DOMAIN_URL, usuarios, Usuarios.class);
     }
 
-    @PostMapping("/confirmarContrasenia")
+    @PostMapping("/autorizarIngreso")
     Boolean verifyPassword(@RequestBody Usuarios usuarios) {
-        return restTemplate.postForObject(DOMAIN_URL + "/confirmarContrasenia", usuarios, Boolean.class);
+        return restTemplate.postForObject(DOMAIN_URL + "/autorizarIngreso", usuarios, Boolean.class);
     }
 }

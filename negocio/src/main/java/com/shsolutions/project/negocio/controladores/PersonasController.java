@@ -1,6 +1,7 @@
 package com.shsolutions.project.negocio.controladores;
 
 import com.shsolutions.project.negocio.modelos.Personas;
+import com.shsolutions.project.negocio.modelos.Usuarios;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
@@ -15,6 +16,7 @@ import static com.shsolutions.project.negocio.utilidades.Utilidades.restTemplate
 public class PersonasController {
 
     private final String DOMAIN_URL = DOMAIN + "personas";
+    private final String DOMAIN_URL_USUARIOS = DOMAIN + "usuarios";
 
     @GetMapping("/cascaron")
     Personas cascaron() {
@@ -36,14 +38,25 @@ public class PersonasController {
         return restTemplate.getForObject(DOMAIN_URL + "/findById/" + id,Personas.class);
     }
 
-    @PostMapping()
-    Personas save(@RequestBody Personas personas){
-        return restTemplate.postForObject(DOMAIN_URL ,personas,Personas.class);
+    @PostMapping("/sucursalCreacion/{idSucursal}")
+    Personas save(@RequestBody Personas personas,@PathVariable Integer idSucursal){
+        personas = restTemplate.postForObject(DOMAIN_URL ,personas,Personas.class);
+        if(personas != null && personas.getIndicadorCliente() != null && !personas.getIndicadorCliente()){
+            crearUsuarioPersona(personas, idSucursal);
+        }
+        return personas;
     }
 
     @PutMapping()
     Personas update(@RequestBody Personas personas){
         return restTemplate.postForObject(DOMAIN_URL ,personas,Personas.class);
+    }
+
+    private void crearUsuarioPersona(Personas personas, Integer idSucursal){
+        Usuarios usuarios = new Usuarios();
+        usuarios.setUsuario(personas.getNumeroDocumento());
+        usuarios.setIdSucursal(idSucursal);
+        restTemplate.postForObject(DOMAIN_URL_USUARIOS, usuarios, Usuarios.class);
     }
 
 }

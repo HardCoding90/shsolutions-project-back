@@ -1,6 +1,6 @@
 package com.shsolutions.project.dominio.modelos;
 
-import com.shsolutions.project.dominio.configuracion.LocalDateConverter;
+import com.shsolutions.project.dominio.configuracion.LocalDateTimeConverter;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -74,7 +74,7 @@ public class VentasProductos {
     }
 
     @Basic
-    @Convert(converter = LocalDateConverter.class)
+    @Convert(converter = LocalDateTimeConverter.class)
     @Column(name = "FechaAgenda")
     public LocalDateTime getFechaAgenda() {
         return fechaAgenda;

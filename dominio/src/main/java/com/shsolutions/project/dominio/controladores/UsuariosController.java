@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static com.shsolutions.project.dominio.configuracion.SecurityConfig.validarAcceso;
+
 @RestController
 @RequestMapping("/api/usuarios")
 public class UsuariosController {
@@ -41,8 +43,9 @@ public class UsuariosController {
         return usuariosRepository.save(usuarios);
     }
 
-    @PostMapping("/confirmarContrasenia")
-    Boolean findEnabled(@RequestBody Usuarios usuario) {
-        return SecurityConfig.authVerification(usuario,findById(usuario.getIdUsuario()).getContrasenia());
+    @PostMapping("/autorizarIngreso")
+    Boolean findEnabled(@RequestBody Usuarios usuarios) {
+        Usuarios usuarioBd = findById(usuarios.getIdUsuario());
+        return validarAcceso(usuarios,usuarioBd);
     }
 }

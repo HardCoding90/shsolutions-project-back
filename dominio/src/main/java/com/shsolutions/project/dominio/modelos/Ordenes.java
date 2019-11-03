@@ -1,6 +1,6 @@
 package com.shsolutions.project.dominio.modelos;
 
-import com.shsolutions.project.dominio.configuracion.LocalDateConverter;
+import com.shsolutions.project.dominio.configuracion.LocalDateTimeConverter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -12,7 +12,7 @@ public class Ordenes {
 
     private Integer idOrden;
     private Integer idBodega;
-    private LocalDateTime fechaOrden ;
+    private LocalDateTime fechaOrden;
     private Boolean indicadorRecibida;
     private Boolean indicadorHabilitado;
 
@@ -41,7 +41,7 @@ public class Ordenes {
     }
 
     @Basic
-    @Convert(converter = LocalDateConverter.class)
+    @Convert(converter = LocalDateTimeConverter.class)
     @Column(name = "FechaOrden")
     public LocalDateTime getFechaOrden() {
         return fechaOrden;

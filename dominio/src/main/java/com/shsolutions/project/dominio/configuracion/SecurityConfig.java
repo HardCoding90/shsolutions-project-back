@@ -6,17 +6,17 @@ import com.shsolutions.project.dominio.modelos.Usuarios;
 
 public class SecurityConfig {
 
-    public static String passwordEncode(String password) {
+    public static String encriptarContrasenia(String password) {
         return JWT.create()
                 .withIssuer(password)
                 .sign(Algorithm.HMAC256("secret"));
     }
 
-    public static Boolean authVerification(Usuarios usuario, String verificarUsuario) {
-        return verificarUsuario.equals(passwordEncode(usuario.getContrasenia()));
+    public static Boolean validarAcceso(Usuarios usuario, Usuarios usuarioBd) {
+        return usuarioBd.getContrasenia().equals(encriptarContrasenia(usuario.getContrasenia())) && usuario.getUsuario().equals(usuarioBd.getUsuario());
     }
 
     public static void codificarContrasenia(Usuarios usuarios) {
-        usuarios.setContrasenia(SecurityConfig.passwordEncode(usuarios.getContrasenia()));
+        usuarios.setContrasenia(SecurityConfig.encriptarContrasenia(usuarios.getContrasenia()));
     }
 }
