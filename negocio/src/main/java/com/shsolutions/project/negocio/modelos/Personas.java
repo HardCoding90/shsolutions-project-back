@@ -20,7 +20,7 @@ public class Personas {
     private String barrio;
     private Integer idMunicipio;
     private Boolean indicadorCliente;
-    private LocalDateTime fechaRegistro;
+    private LocalDate fechaRegistro;
     private Boolean indicadorHabilitado;
 
     public String getGenero() {
@@ -143,11 +143,11 @@ public class Personas {
         this.email = email;
     }
 
-    public LocalDateTime getFechaRegistro() {
+    public LocalDate getFechaRegistro() {
         return fechaRegistro;
     }
 
-    public void setFechaRegistro(LocalDateTime fechaRegistro) {
+    public void setFechaRegistro(LocalDate fechaRegistro) {
         this.fechaRegistro = fechaRegistro;
     }
 

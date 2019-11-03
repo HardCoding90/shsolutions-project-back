@@ -1,5 +1,7 @@
 package com.shsolutions.project.dominio.modelos;
 
+import com.shsolutions.project.dominio.configuracion.LocalDateConverter;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -49,6 +51,7 @@ public class Ventas {
     }
 
     @Basic
+    @Convert(converter = LocalDateConverter.class)
     @Column(name = "FechaVenta")
     public LocalDateTime getFechaVenta() {
         return fechaVenta;

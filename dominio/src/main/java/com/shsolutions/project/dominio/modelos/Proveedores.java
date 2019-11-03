@@ -1,5 +1,7 @@
 package com.shsolutions.project.dominio.modelos;
 
+import com.shsolutions.project.dominio.configuracion.LocalDateConverter;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.time.LocalDate;
@@ -67,6 +69,7 @@ public class Proveedores {
     }
 
     @Basic
+    @Convert(converter = LocalDateConverter.class)
     @Column(name = "FechaRegistro")
     public LocalDate getFechaRegistro() {
         return fechaRegistro;

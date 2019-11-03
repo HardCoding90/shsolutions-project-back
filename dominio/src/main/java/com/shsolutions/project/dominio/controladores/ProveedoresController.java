@@ -5,6 +5,8 @@ import com.shsolutions.project.dominio.repositorios.ProveedoresRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -31,6 +33,7 @@ public class ProveedoresController {
 
     @PostMapping()
     Proveedores save(@RequestBody Proveedores proveedores) {
+        proveedores.setFechaRegistro(proveedores.getFechaRegistro() != null ? proveedores.getFechaRegistro() : LocalDate.now());
         return proveedoresRepository.save(proveedores);
     }
 }

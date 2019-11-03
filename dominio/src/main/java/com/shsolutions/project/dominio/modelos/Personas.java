@@ -1,5 +1,7 @@
 package com.shsolutions.project.dominio.modelos;
 
+import com.shsolutions.project.dominio.configuracion.LocalDateConverter;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -24,7 +26,7 @@ public class Personas {
     private String barrio;
     private Integer idMunicipio;
     private Boolean indicadorCliente;
-    private LocalDateTime fechaRegistro;
+    private LocalDate fechaRegistro;
     private Boolean indicadorHabilitado;
 
     public Personas() {
@@ -92,6 +94,7 @@ public class Personas {
     }
 
     @Basic
+    @Convert(converter = LocalDateConverter.class)
     @Column(name = "FechaNacimiento")
     public LocalDate getFechaNacimiento() {
         return fechaNacimiento;
@@ -122,12 +125,13 @@ public class Personas {
     }
 
     @Basic
+    @Convert(converter = LocalDateConverter.class)
     @Column(name = "FechaRegistro")
-    public LocalDateTime getFechaRegistro() {
+    public LocalDate getFechaRegistro() {
         return fechaRegistro;
     }
 
-    public void setFechaRegistro(LocalDateTime fechaRegistro) {
+    public void setFechaRegistro(LocalDate fechaRegistro) {
         this.fechaRegistro = fechaRegistro;
     }
 

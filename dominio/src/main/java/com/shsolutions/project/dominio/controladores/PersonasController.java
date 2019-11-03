@@ -5,6 +5,8 @@ import com.shsolutions.project.dominio.repositorios.PersonasRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -31,6 +33,7 @@ public class PersonasController {
 
     @PostMapping()
     Personas save(@RequestBody Personas personas) {
+        personas.setFechaRegistro(personas.getFechaRegistro() != null ? personas.getFechaRegistro() : LocalDate.now());
         return personasRepository.save(personas);
     }
 }
