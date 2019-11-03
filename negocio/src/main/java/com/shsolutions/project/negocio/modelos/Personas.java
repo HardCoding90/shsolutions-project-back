@@ -22,6 +22,8 @@ public class Personas {
     private Boolean indicadorCliente;
     private LocalDate fechaRegistro;
     private Boolean indicadorHabilitado;
+    private Integer idRol;
+    private Integer idSucursal;
 
     public String getGenero() {
         return genero;
@@ -157,5 +159,21 @@ public class Personas {
 
     public void setIndicadorHabilitado(Boolean indicadorHabilitado) {
         this.indicadorHabilitado = indicadorHabilitado;
+    }
+
+    public Integer getIdRol() {
+        return idRol;
+    }
+
+    public void setIdRol(Integer idRol) {
+        this.idRol = idRol;
+    }
+
+    public Integer getIdSucursal() {
+        return idSucursal;
+    }
+
+    public void setIdSucursal(Integer idSucursal) {
+        this.idSucursal = idSucursal;
     }
 }

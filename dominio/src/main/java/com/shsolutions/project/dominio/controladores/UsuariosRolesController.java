@@ -31,6 +31,7 @@ public class UsuariosRolesController {
 
     @PostMapping()
     UsuariosRoles save(@RequestBody UsuariosRoles usuariosRoles) {
+        usuariosRoles.setIndicadorHabilitado(usuariosRoles.getIndicadorHabilitado() != null ? usuariosRoles.getIndicadorHabilitado() : true);
         return UsuariosRolesRepository.save(usuariosRoles);
     }
 }

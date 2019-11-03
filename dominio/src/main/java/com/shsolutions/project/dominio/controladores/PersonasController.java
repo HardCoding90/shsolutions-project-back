@@ -32,6 +32,7 @@ public class PersonasController {
 
     @PostMapping()
     Personas save(@RequestBody Personas personas) {
+        personas.setIndicadorHabilitado(personas.getIndicadorHabilitado() != null ? personas.getIndicadorHabilitado() : true);
         personas.setFechaRegistro(personas.getFechaRegistro() != null ? personas.getFechaRegistro() : LocalDate.now());
         return personasRepository.save(personas);
     }

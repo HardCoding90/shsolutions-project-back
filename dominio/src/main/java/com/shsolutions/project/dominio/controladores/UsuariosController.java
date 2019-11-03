@@ -39,6 +39,7 @@ public class UsuariosController {
 
     @PostMapping()
     Usuarios save(@RequestBody Usuarios usuarios) {
+        usuarios.setIndicadorHabilitado(usuarios.getIndicadorHabilitado() != null ? usuarios.getIndicadorHabilitado() : true);
         SeguridadAcceso.accesoUsuario(usuarios,personasRepository.findById(usuarios.getIdPersona()).orElse(null));
         return usuariosRepository.save(usuarios);
     }
