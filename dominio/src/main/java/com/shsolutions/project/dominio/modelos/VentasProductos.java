@@ -13,7 +13,7 @@ public class VentasProductos {
 
     private Integer idVentaProducto;
     private Integer idVenta;
-    private Integer idBodegaProducto;
+    private Integer idInventario;
     private Integer cantidadVendida;
     private BigDecimal valorVentaUnidad;
     private LocalDateTime fechaAgenda;
@@ -44,13 +44,13 @@ public class VentasProductos {
     }
 
     @Basic
-    @Column(name = "IdBodegaProducto")
-    public Integer getIdBodegaProducto() {
-        return idBodegaProducto;
+    @Column(name = "IdInventario")
+    public Integer getIdInventario() {
+        return idInventario;
     }
 
-    public void setIdBodegaProducto(Integer idBodegaProducto) {
-        this.idBodegaProducto = idBodegaProducto;
+    public void setIdInventario(Integer idInventario) {
+        this.idInventario = idInventario;
     }
 
     @Basic
@@ -101,7 +101,7 @@ public class VentasProductos {
         VentasProductos that = (VentasProductos) o;
         return Objects.equals(getIdVentaProducto(), that.getIdVentaProducto()) &&
                 Objects.equals(getIdVenta(), that.getIdVenta()) &&
-                Objects.equals(getIdBodegaProducto(), that.getIdBodegaProducto()) &&
+                Objects.equals(getIdInventario(), that.getIdInventario()) &&
                 Objects.equals(getCantidadVendida(), that.getCantidadVendida()) &&
                 Objects.equals(getValorVentaUnidad(), that.getValorVentaUnidad()) &&
                 Objects.equals(getFechaAgenda(), that.getFechaAgenda()) &&
@@ -110,6 +110,6 @@ public class VentasProductos {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getIdVentaProducto(), getIdVenta(), getIdBodegaProducto(), getCantidadVendida(), getValorVentaUnidad(), getFechaAgenda(), getIndicadorHabilitado());
+        return Objects.hash(getIdVentaProducto(), getIdVenta(), getIdInventario(), getCantidadVendida(), getValorVentaUnidad(), getFechaAgenda(), getIndicadorHabilitado());
     }
 }

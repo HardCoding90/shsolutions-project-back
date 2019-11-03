@@ -1,12 +1,11 @@
 package com.shsolutions.project.negocio.modelos;
 
 import java.math.BigDecimal;
-import java.util.Objects;
 
-public class BodegasProductos {
+public class Inventarios {
 
-    private Integer idBodegaProducto;
-    private Integer idBodega;
+    private Integer idInventario;
+    private Integer idSucursal;
     private Integer idProveedorProducto;
     private Integer stockMinimo;
     private Integer stockMaximo;
@@ -14,20 +13,20 @@ public class BodegasProductos {
     private BigDecimal valor;
     private Boolean indicadorHabilitado;
 
-    public Integer getIdBodegaProducto() {
-        return idBodegaProducto;
+    public Integer getIdInventario() {
+        return idInventario;
     }
 
-    public void setIdBodegaProducto(Integer idBodegaProducto) {
-        this.idBodegaProducto = idBodegaProducto;
+    public void setIdInventario(Integer idInventario) {
+        this.idInventario = idInventario;
     }
 
-    public Integer getIdBodega() {
-        return idBodega;
+    public Integer getIdSucursal() {
+        return idSucursal;
     }
 
-    public void setIdBodega(Integer idBodega) {
-        this.idBodega = idBodega;
+    public void setIdSucursal(Integer idSucursal) {
+        this.idSucursal = idSucursal;
     }
 
     public Integer getIdProveedorProducto() {

@@ -11,7 +11,7 @@ import java.util.Objects;
 public class Ordenes {
 
     private Integer idOrden;
-    private Integer idBodega;
+    private Integer idSucursal;
     private LocalDateTime fechaOrden;
     private Boolean indicadorRecibida;
     private Boolean indicadorHabilitado;
@@ -31,13 +31,13 @@ public class Ordenes {
     }
 
     @Basic
-    @Column(name = "IdBodega")
-    public Integer getIdBodega() {
-        return idBodega;
+    @Column(name = "IdSucursal")
+    public Integer getIdSucursal() {
+        return idSucursal;
     }
 
-    public void setIdBodega(Integer idBodega) {
-        this.idBodega = idBodega;
+    public void setIdSucursal(Integer idSucursal) {
+        this.idSucursal = idSucursal;
     }
 
     @Basic
@@ -77,7 +77,7 @@ public class Ordenes {
         if (o == null || getClass() != o.getClass()) return false;
         Ordenes ordenes = (Ordenes) o;
         return Objects.equals(getIdOrden(), ordenes.getIdOrden()) &&
-                Objects.equals(getIdBodega(), ordenes.getIdBodega()) &&
+                Objects.equals(getIdSucursal(), ordenes.getIdSucursal()) &&
                 Objects.equals(getFechaOrden(), ordenes.getFechaOrden()) &&
                 Objects.equals(getIndicadorRecibida(), ordenes.getIndicadorRecibida()) &&
                 Objects.equals(getIndicadorHabilitado(), ordenes.getIndicadorHabilitado());
@@ -85,6 +85,6 @@ public class Ordenes {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getIdOrden(), getIdBodega(), getFechaOrden(), getIndicadorRecibida(), getIndicadorHabilitado());
+        return Objects.hash(getIdOrden(), getIdSucursal(), getFechaOrden(), getIndicadorRecibida(), getIndicadorHabilitado());
     }
 }

@@ -1,12 +1,11 @@
 package com.shsolutions.project.negocio.modelos;
 
 import java.time.LocalDateTime;
-import java.util.Objects;
 
 public class Ordenes {
 
     private Integer idOrden;
-    private Integer idBodega;
+    private Integer idSucursal;
     private LocalDateTime fechaOrden ;
     private Boolean indicadorRecibida;
     private Boolean indicadorHabilitado;
@@ -19,12 +18,12 @@ public class Ordenes {
         this.idOrden = idOrden;
     }
 
-    public Integer getIdBodega() {
-        return idBodega;
+    public Integer getIdSucursal() {
+        return idSucursal;
     }
 
-    public void setIdBodega(Integer idBodega) {
-        this.idBodega = idBodega;
+    public void setIdSucursal(Integer idSucursal) {
+        this.idSucursal = idSucursal;
     }
 
     public LocalDateTime getFechaOrden() {

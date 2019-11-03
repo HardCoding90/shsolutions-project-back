@@ -2,13 +2,12 @@ package com.shsolutions.project.negocio.modelos;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.Objects;
 
 public class VentasProductos {
 
     private Integer idVentaProducto;
     private Integer idVenta;
-    private Integer idBodegaProducto;
+    private Integer idInventario;
     private Integer cantidadVendida;
     private BigDecimal valorVentaUnidad;
     private LocalDateTime fechaAgenda;
@@ -30,12 +29,12 @@ public class VentasProductos {
         this.idVenta = idVenta;
     }
 
-    public Integer getIdBodegaProducto() {
-        return idBodegaProducto;
+    public Integer getIdInventario() {
+        return idInventario;
     }
 
-    public void setIdBodegaProducto(Integer idBodegaProducto) {
-        this.idBodegaProducto = idBodegaProducto;
+    public void setIdInventario(Integer idInventario) {
+        this.idInventario = idInventario;
     }
 
     public Integer getCantidadVendida() {

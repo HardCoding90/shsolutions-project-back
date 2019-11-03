@@ -5,50 +5,50 @@ import java.math.BigDecimal;
 import java.util.Objects;
 
 @Entity
-@Table(name = "bodegasproductos", catalog = "shsolutions")
-public class BodegasProductos {
+@Table(name = "inventarios", catalog = "shsolutions")
+public class Inventarios {
 
-    private Integer idBodegaProducto;
-    private Integer idBodega;
-    private Integer idProveedorProducto;
+    private Integer idInventario;
+    private Integer idSucursal;
+    private Integer idProductoProveedor;
     private Integer stockMinimo;
     private Integer stockMaximo;
     private Integer cantidadExistente;
     private BigDecimal valor;
     private Boolean indicadorHabilitado;
 
-    public BodegasProductos() {
+    public Inventarios() {
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "IdBodegaProducto")
-    public Integer getIdBodegaProducto() {
-        return idBodegaProducto;
+    @Column(name = "IdInventario")
+    public Integer getIdInventario() {
+        return idInventario;
     }
 
-    public void setIdBodegaProducto(Integer idBodegaProducto) {
-        this.idBodegaProducto = idBodegaProducto;
-    }
-
-    @Basic
-    @Column(name = "IdBodega")
-    public Integer getIdBodega() {
-        return idBodega;
-    }
-
-    public void setIdBodega(Integer idBodega) {
-        this.idBodega = idBodega;
+    public void setIdInventario(Integer idInventario) {
+        this.idInventario = idInventario;
     }
 
     @Basic
-    @Column(name = "IdProveedorProducto")
-    public Integer getIdProveedorProducto() {
-        return idProveedorProducto;
+    @Column(name = "IdSucursal")
+    public Integer getIdSucursal() {
+        return idSucursal;
     }
 
-    public void setIdProveedorProducto(Integer idProveedorProducto) {
-        this.idProveedorProducto = idProveedorProducto;
+    public void setIdSucursal(Integer idSucursal) {
+        this.idSucursal = idSucursal;
+    }
+
+    @Basic
+    @Column(name = "IdProductoProveedor")
+    public Integer getIdProductoProveedor() {
+        return idProductoProveedor;
+    }
+
+    public void setIdProductoProveedor(Integer idProductoProveedor) {
+        this.idProductoProveedor = idProductoProveedor;
     }
 
     @Basic
@@ -105,10 +105,10 @@ public class BodegasProductos {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        BodegasProductos that = (BodegasProductos) o;
-        return Objects.equals(getIdBodegaProducto(), that.getIdBodegaProducto()) &&
-                Objects.equals(getIdBodega(), that.getIdBodega()) &&
-                Objects.equals(getIdProveedorProducto(), that.getIdProveedorProducto()) &&
+        Inventarios that = (Inventarios) o;
+        return Objects.equals(getIdInventario(), that.getIdInventario()) &&
+                Objects.equals(getIdSucursal(), that.getIdSucursal()) &&
+                Objects.equals(getIdProductoProveedor(), that.getIdProductoProveedor()) &&
                 Objects.equals(getStockMinimo(), that.getStockMinimo()) &&
                 Objects.equals(getStockMaximo(), that.getStockMaximo()) &&
                 Objects.equals(getCantidadExistente(), that.getCantidadExistente()) &&
@@ -118,6 +118,6 @@ public class BodegasProductos {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getIdBodegaProducto(), getIdBodega(), getIdProveedorProducto(), getStockMinimo(), getStockMaximo(), getCantidadExistente(), getValor(), getIndicadorHabilitado());
+        return Objects.hash(getIdInventario(), getIdSucursal(), getIdProductoProveedor(), getStockMinimo(), getStockMaximo(), getCantidadExistente(), getValor(), getIndicadorHabilitado());
     }
 }
