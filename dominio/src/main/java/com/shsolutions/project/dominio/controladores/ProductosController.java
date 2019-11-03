@@ -29,6 +29,11 @@ public class ProductosController {
         return productosRepository.findById(id).orElse(null);
     }
 
+    @PostMapping("/saveAll")
+    List<Productos> saveAll(@RequestBody List<Productos> productos){
+        return productosRepository.saveAll(productos);
+    }
+
     @PostMapping()
     Productos save(@RequestBody Productos productos) {
         return productosRepository.save(productos);
