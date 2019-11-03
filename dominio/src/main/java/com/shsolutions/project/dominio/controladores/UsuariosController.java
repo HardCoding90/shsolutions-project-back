@@ -1,6 +1,8 @@
 package com.shsolutions.project.dominio.controladores;
 
+import com.shsolutions.project.dominio.configuracion.EnviarCorreo;
 import com.shsolutions.project.dominio.modelos.Usuarios;
+import com.shsolutions.project.dominio.repositorios.PersonasRepository;
 import com.shsolutions.project.dominio.repositorios.UsuariosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +15,9 @@ public class UsuariosController {
 
     @Autowired
     private UsuariosRepository usuariosRepository;
+
+    @Autowired
+    private PersonasRepository personasRepository;
 
     @GetMapping("/findAll")
     List<Usuarios> findAll() {
@@ -31,6 +36,9 @@ public class UsuariosController {
 
     @PostMapping()
     Usuarios save(@RequestBody Usuarios usuarios) {
+        if(usuarios.getIdUsuario() == null){
+            EnviarCorreo.enviarCorreo(usuarios,personasRepository.findById(usuarios.getIdPersona()).orElse(null));
+        }
         return usuariosRepository.save(usuarios);
     }
 }
