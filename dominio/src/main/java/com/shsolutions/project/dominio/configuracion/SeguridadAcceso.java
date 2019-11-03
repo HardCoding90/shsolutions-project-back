@@ -7,10 +7,24 @@ import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
+import java.util.Random;
 
-public class EnviarCorreo {
+import static com.shsolutions.project.dominio.configuracion.SecurityConfig.codificarContrasenia;
 
-    public static void enviarCorreo(Usuarios usuarios, Personas personas) {
+public class SeguridadAcceso {
+
+    public static void accesoUsuario(Usuarios usuarios, Personas personas) {
+        if (usuarios.getIdUsuario() == null) {
+            usuarios.setIndicadorNuevo(true);
+            enviarCorreoSeguridad(usuarios, personas);
+        } else {
+            usuarios.setIndicadorNuevo(false);
+            codificarContrasenia(usuarios);
+        }
+    }
+
+    public static void enviarCorreoSeguridad(Usuarios usuarios, Personas personas) {
+        if (personas == null) return;
         final String username = "warevalo.electronica2017@gmail.com";
         final String password = "21seminarista21";
 
@@ -33,11 +47,12 @@ public class EnviarCorreo {
             message.setFrom(new InternetAddress("SHSolutions"));
             message.setRecipients(
                     Message.RecipientType.TO,
-                    InternetAddress.parse("")
+                    InternetAddress.parse(personas.getEmail())
             );
             message.setSubject("Código de seguridad");
-            message.setText("Dear Mail Crawler,"
-                    + "\n\n Please do not spam my email!");
+            message.setText("SHSolutions le da la bienvenida."
+                    + "\n\nPara continuar con el proceso de seguridad actualize su usuario y contraseña.\n\nSu usuario es su número de documento y esta es su contraseña temporal: " + generarCodigoSeguridad(usuarios) + "\n\n"
+                    + "Por favor ingrese y actualize sus datos.\n\nMuchas gracias.");
 
             Transport.send(message);
 
@@ -46,7 +61,13 @@ public class EnviarCorreo {
         }
     }
 
-    private void generarCodigoSeguridad(){
-
+    private static Integer generarCodigoSeguridad(Usuarios usuarios) {
+        Random random = new Random();
+        Integer numeroValidacion = random.nextInt(999999);
+        usuarios.setContrasenia(numeroValidacion.toString());
+        codificarContrasenia(usuarios);
+        return numeroValidacion;
     }
+
+
 }

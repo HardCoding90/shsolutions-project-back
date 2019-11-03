@@ -7,6 +7,7 @@ public class Usuarios {
     private String contrasenia;
     private Integer idPersona;
     private Integer idSucursal;
+    private Boolean indicadorNuevo;
     private Boolean indicadorHabilitado;
 
     public Integer getIdUsuario() {
@@ -55,5 +56,13 @@ public class Usuarios {
 
     public void setIdSucursal(Integer idSucursal) {
         this.idSucursal = idSucursal;
+    }
+
+    public Boolean getIndicadorNuevo() {
+        return indicadorNuevo;
+    }
+
+    public void setIndicadorNuevo(Boolean indicadorNuevo) {
+        this.indicadorNuevo = indicadorNuevo;
     }
 }

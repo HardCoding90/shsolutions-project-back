@@ -1,6 +1,7 @@
 package com.shsolutions.project.dominio.controladores;
 
-import com.shsolutions.project.dominio.configuracion.EnviarCorreo;
+import com.shsolutions.project.dominio.configuracion.SecurityConfig;
+import com.shsolutions.project.dominio.configuracion.SeguridadAcceso;
 import com.shsolutions.project.dominio.modelos.Usuarios;
 import com.shsolutions.project.dominio.repositorios.PersonasRepository;
 import com.shsolutions.project.dominio.repositorios.UsuariosRepository;
@@ -36,9 +37,12 @@ public class UsuariosController {
 
     @PostMapping()
     Usuarios save(@RequestBody Usuarios usuarios) {
-        if(usuarios.getIdUsuario() == null){
-            EnviarCorreo.enviarCorreo(usuarios,personasRepository.findById(usuarios.getIdPersona()).orElse(null));
-        }
+        SeguridadAcceso.accesoUsuario(usuarios,personasRepository.findById(usuarios.getIdPersona()).orElse(null));
         return usuariosRepository.save(usuarios);
+    }
+
+    @PostMapping("/confirmarContrasenia")
+    Boolean findEnabled(@RequestBody Usuarios usuario) {
+        return SecurityConfig.authVerification(usuario,findById(usuario.getIdUsuario()).getContrasenia());
     }
 }
