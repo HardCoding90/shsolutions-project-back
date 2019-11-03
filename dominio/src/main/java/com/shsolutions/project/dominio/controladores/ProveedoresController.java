@@ -31,9 +31,19 @@ public class ProveedoresController {
         return proveedoresRepository.findById(id).orElse(null);
     }
 
+    @PostMapping("/saveAll")
+    List<Proveedores> saveAll(@RequestBody List<Proveedores> proveedores){
+        proveedores.forEach(this::configurarValoresPorDefecto);
+        return proveedoresRepository.saveAll(proveedores);
+    }
+
     @PostMapping()
     Proveedores save(@RequestBody Proveedores proveedores) {
-        proveedores.setFechaRegistro(proveedores.getFechaRegistro() != null ? proveedores.getFechaRegistro() : LocalDate.now());
+        configurarValoresPorDefecto(proveedores);
         return proveedoresRepository.save(proveedores);
+    }
+
+    private void configurarValoresPorDefecto(Proveedores proveedores){
+        proveedores.setFechaRegistro(proveedores.getFechaRegistro() != null ? proveedores.getFechaRegistro() : LocalDate.now());
     }
 }
