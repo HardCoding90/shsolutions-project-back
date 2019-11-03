@@ -39,5 +39,7 @@ public class OrdenesController {
 
     private void configurarValoresPorDefecto(Ordenes ordenes){
         ordenes.setFechaOrden(ordenes.getFechaOrden() != null ? ordenes.getFechaOrden() : LocalDateTime.now());
+        ordenes.setIndicadorRecibida(ordenes.getIndicadorRecibida() != null ? ordenes.getIndicadorRecibida() : false);
+        ordenes.setIndicadorHabilitado(ordenes.getIndicadorHabilitado() != null ? ordenes.getIndicadorHabilitado() : true);
     }
 }
