@@ -11,6 +11,7 @@ public class Usuarios {
     private String usuario;
     private String contrasenia;
     private Integer idPersona;
+    private Integer idSucursal;
     private Boolean indicadorHabilitado;
 
     public Usuarios() {
@@ -55,6 +56,16 @@ public class Usuarios {
 
     public void setIdPersona(Integer idPersona) {
         this.idPersona = idPersona;
+    }
+
+    @Basic
+    @Column(name = "IdSucursal")
+    public Integer getIdSucursal() {
+        return idSucursal;
+    }
+
+    public void setIdSucursal(Integer idSucursal) {
+        this.idSucursal = idSucursal;
     }
 
     @Basic

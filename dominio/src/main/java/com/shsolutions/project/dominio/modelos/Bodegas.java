@@ -8,6 +8,7 @@ import java.util.Objects;
 public class Bodegas {
 
     private Integer idBodega;
+    private Integer idMunicipio;
     private String bodega;
     private String codigo;
     private Boolean indicadorHabilitado;
@@ -44,6 +45,16 @@ public class Bodegas {
 
     public void setCodigo(String codigo) {
         this.codigo = codigo;
+    }
+
+    @Basic
+    @Column(name = "IdMunicipio")
+    public Integer getIdMunicipio() {
+        return idMunicipio;
+    }
+
+    public void setIdMunicipio(Integer idMunicipio) {
+        this.idMunicipio = idMunicipio;
     }
 
     @Basic

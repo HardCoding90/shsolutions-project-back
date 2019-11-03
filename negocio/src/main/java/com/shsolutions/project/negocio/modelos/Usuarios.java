@@ -6,6 +6,7 @@ public class Usuarios {
     private String usuario;
     private String contrasenia;
     private Integer idPersona;
+    private Integer idSucursal;
     private Boolean indicadorHabilitado;
 
     public Integer getIdUsuario() {
@@ -46,5 +47,13 @@ public class Usuarios {
 
     public void setIndicadorHabilitado(Boolean indicadorHabilitado) {
         this.indicadorHabilitado = indicadorHabilitado;
+    }
+
+    public Integer getIdSucursal() {
+        return idSucursal;
+    }
+
+    public void setIdSucursal(Integer idSucursal) {
+        this.idSucursal = idSucursal;
     }
 }

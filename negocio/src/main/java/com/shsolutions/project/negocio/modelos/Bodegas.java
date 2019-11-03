@@ -7,6 +7,7 @@ public class Bodegas {
     private Integer idBodega;
     private String bodega;
     private String codigo;
+    private Integer idMunicipio;
     private Boolean indicadorHabilitado;
 
     public Integer getIdBodega() {
@@ -39,5 +40,13 @@ public class Bodegas {
 
     public void setIndicadorHabilitado(Boolean indicadorHabilitado) {
         this.indicadorHabilitado = indicadorHabilitado;
+    }
+
+    public Integer getIdMunicipio() {
+        return idMunicipio;
+    }
+
+    public void setIdMunicipio(Integer idMunicipio) {
+        this.idMunicipio = idMunicipio;
     }
 }
