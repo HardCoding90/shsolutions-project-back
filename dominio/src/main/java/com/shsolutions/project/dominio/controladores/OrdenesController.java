@@ -6,6 +6,7 @@ import com.shsolutions.project.dominio.repositorios.OrdenesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -32,6 +33,11 @@ public class OrdenesController {
 
     @PostMapping()
     Ordenes save(@RequestBody Ordenes ordenes) {
+        configurarValoresPorDefecto(ordenes);
         return ordenesRepository.save(ordenes);
+    }
+
+    private void configurarValoresPorDefecto(Ordenes ordenes){
+        ordenes.setFechaOrden(ordenes.getFechaOrden() != null ? ordenes.getFechaOrden() : LocalDateTime.now());
     }
 }
