@@ -29,8 +29,18 @@ public class OrdenesProductosController {
         return ordenesProductosRepository.findById(id).orElse(null);
     }
 
+    @PostMapping("/saveAll")
+    List<OrdenesProductos> saveAll(@RequestBody List<OrdenesProductos> ordenesProductos) {
+        ordenesProductos.forEach(this::configurarValoresPorDefecto);
+        return ordenesProductosRepository.saveAll(ordenesProductos);
+    }
+
     @PostMapping()
-    OrdenesProductos save(@RequestBody OrdenesProductos ordenes) {
-        return ordenesProductosRepository.save(ordenes);
+    OrdenesProductos save(@RequestBody OrdenesProductos ordenesProductos) {
+        return ordenesProductosRepository.save(ordenesProductos);
+    }
+
+    private void configurarValoresPorDefecto(OrdenesProductos ordenesProductos){
+        ordenesProductos.setIndicadorHabilitado(ordenesProductos.getIndicadorHabilitado() != null ? ordenesProductos.getIndicadorHabilitado() : true);
     }
 }
