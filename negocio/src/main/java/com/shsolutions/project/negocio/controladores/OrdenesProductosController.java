@@ -38,7 +38,7 @@ public class OrdenesProductosController {
 
     @PostMapping("/saveAll")
     List<OrdenesProductos> save(@RequestBody List<OrdenesProductos> ordenesProductos) {
-        return Arrays.asList(restTemplate.postForObject(DOMAIN_URL, ordenesProductos, OrdenesProductos[].class));
+        return Arrays.asList(restTemplate.postForObject(DOMAIN_URL + "/saveAll", ordenesProductos, OrdenesProductos[].class));
     }
 
     @PostMapping()
