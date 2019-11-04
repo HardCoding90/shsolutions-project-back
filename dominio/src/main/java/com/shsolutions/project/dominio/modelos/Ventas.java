@@ -11,7 +11,6 @@ import java.util.Objects;
 public class Ventas {
 
     private Integer idVenta;
-    ;
     private Integer idSucursal;
     private Integer idPersonaVenta;
     private LocalDateTime fechaVenta;

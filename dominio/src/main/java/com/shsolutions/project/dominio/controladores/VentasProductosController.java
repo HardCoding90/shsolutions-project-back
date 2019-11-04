@@ -29,8 +29,19 @@ public class VentasProductosController {
         return ventasProductosRepository.findById(id).orElse(null);
     }
 
+    @PostMapping("/saveAll")
+    List<VentasProductos> save(@RequestBody List<VentasProductos> ventasProductos) {
+        ventasProductos.forEach(this::configurarValoresPorDefecto);
+        return ventasProductosRepository.saveAll(ventasProductos);
+    }
+
     @PostMapping()
     VentasProductos save(@RequestBody VentasProductos ventasProductos) {
+        configurarValoresPorDefecto(ventasProductos);
         return ventasProductosRepository.save(ventasProductos);
+    }
+
+    private void configurarValoresPorDefecto(VentasProductos ventasProductos){
+        ventasProductos.setIndicadorHabilitado(ventasProductos.getIndicadorHabilitado() != null ? ventasProductos.getIndicadorHabilitado() : true);
     }
 }

@@ -5,6 +5,7 @@ import com.shsolutions.project.dominio.repositorios.VentasRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -31,6 +32,12 @@ public class VentasController {
 
     @PostMapping()
     Ventas save(@RequestBody Ventas ventas) {
+        configurarValoresPorDefecto(ventas);
         return ventasRepository.save(ventas);
+    }
+
+    private void configurarValoresPorDefecto(Ventas ventas){
+        ventas.setFechaVenta(ventas.getFechaVenta() != null ? ventas.getFechaVenta() : LocalDateTime.now());
+        ventas.setIndicadorHabilitado(ventas.getIndicadorHabilitado() != null ? ventas.getIndicadorHabilitado() : true);
     }
 }

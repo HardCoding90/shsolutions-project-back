@@ -35,6 +35,11 @@ public class InventariosController {
         return inventariosRepository.findAllByIndicadorHabilitadoTrueAndIdSucursalAndIdProductoProveedorIn(idSucursal,idList);
     }
 
+    @PostMapping("/idsList")
+    List<Inventarios> findById(@RequestBody List<Integer> idList) {
+        return inventariosRepository.findAllById(idList);
+    }
+
     @PostMapping("/saveAll")
     List<Inventarios> saveAll(@RequestBody List<Inventarios> inventarios) {
         inventarios.forEach(this::configurarValoresPorDefecto);

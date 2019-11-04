@@ -1,9 +1,6 @@
 package com.shsolutions.project.dominio.modelos;
 
-import com.shsolutions.project.dominio.configuracion.LocalDateTimeConverter;
-
 import javax.persistence.*;
-import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
@@ -12,9 +9,8 @@ public class Facturas {
 
     private Integer idFactura;
     private Integer idVenta;
-    private LocalDateTime fechaFactura;
     private Integer idIva;
-    private Boolean indicadorPagada;
+    private String factura;
     private Boolean indicadorHabilitado;
 
     public Facturas() {
@@ -42,17 +38,6 @@ public class Facturas {
     }
 
     @Basic
-    @Convert(converter = LocalDateTimeConverter.class)
-    @Column(name = "FechaFactura")
-    public LocalDateTime getFechaFactura() {
-        return fechaFactura;
-    }
-
-    public void setFechaFactura(LocalDateTime fechaFactura) {
-        this.fechaFactura = fechaFactura;
-    }
-
-    @Basic
     @Column(name = "IdIva")
     public Integer getIdIva() {
         return idIva;
@@ -63,13 +48,13 @@ public class Facturas {
     }
 
     @Basic
-    @Column(name = "IndicadorPagada")
-    public Boolean getIndicadorPagada() {
-        return indicadorPagada;
+    @Column(name = "Factura")
+    public String getFactura() {
+        return factura;
     }
 
-    public void setIndicadorPagada(Boolean indicadorPagada) {
-        this.indicadorPagada = indicadorPagada;
+    public void setFactura(String factura) {
+        this.factura = factura;
     }
 
     @Basic
@@ -82,6 +67,7 @@ public class Facturas {
         this.indicadorHabilitado = indicadorHabilitado;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -89,14 +75,12 @@ public class Facturas {
         Facturas facturas = (Facturas) o;
         return Objects.equals(getIdFactura(), facturas.getIdFactura()) &&
                 Objects.equals(getIdVenta(), facturas.getIdVenta()) &&
-                Objects.equals(getFechaFactura(), facturas.getFechaFactura()) &&
                 Objects.equals(getIdIva(), facturas.getIdIva()) &&
-                Objects.equals(getIndicadorPagada(), facturas.getIndicadorPagada()) &&
                 Objects.equals(getIndicadorHabilitado(), facturas.getIndicadorHabilitado());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getIdFactura(), getIdVenta(), getFechaFactura(), getIdIva(), getIndicadorPagada(), getIndicadorHabilitado());
+        return Objects.hash(getIdFactura(), getIdVenta(), getIdIva(), getIndicadorHabilitado());
     }
 }

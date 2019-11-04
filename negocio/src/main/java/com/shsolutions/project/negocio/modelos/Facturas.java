@@ -1,15 +1,11 @@
 package com.shsolutions.project.negocio.modelos;
 
-import java.time.LocalDateTime;
-import java.util.Objects;
-
 public class Facturas {
 
     private Integer idFactura;
     private Integer idVenta;
-    private LocalDateTime fechaFactura;
     private Integer idIva;
-    private Boolean indicadorPagada;
+    private String factura;
     private Boolean indicadorHabilitado;
 
     public Integer getIdFactura() {
@@ -28,14 +24,6 @@ public class Facturas {
         this.idVenta = idVenta;
     }
 
-    public LocalDateTime getFechaFactura() {
-        return fechaFactura;
-    }
-
-    public void setFechaFactura(LocalDateTime fechaFactura) {
-        this.fechaFactura = fechaFactura;
-    }
-
     public Integer getIdIva() {
         return idIva;
     }
@@ -44,12 +32,12 @@ public class Facturas {
         this.idIva = idIva;
     }
 
-    public Boolean getIndicadorPagada() {
-        return indicadorPagada;
+    public String getFactura() {
+        return factura;
     }
 
-    public void setIndicadorPagada(Boolean indicadorPagada) {
-        this.indicadorPagada = indicadorPagada;
+    public void setFactura(String factura) {
+        this.factura = factura;
     }
 
     public Boolean getIndicadorHabilitado() {
