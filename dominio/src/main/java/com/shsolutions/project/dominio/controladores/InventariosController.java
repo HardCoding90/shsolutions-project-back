@@ -30,6 +30,11 @@ public class InventariosController {
         return inventariosRepository.findById(id).orElse(null);
     }
 
+    @PostMapping("/sucursal/{idSucursal}/productoProveedorIdList")
+    List<Inventarios> findById(@PathVariable Integer idSucursal, @RequestBody List<Integer> idList) {
+        return inventariosRepository.findAllByIndicadorHabilitadoTrueAndIdSucursalAndIdProductoProveedorIn(idSucursal,idList);
+    }
+
     @PostMapping("/saveAll")
     List<Inventarios> saveAll(@RequestBody List<Inventarios> inventarios) {
         inventarios.forEach(this::configurarValoresPorDefecto);

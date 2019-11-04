@@ -10,4 +10,6 @@ public interface OrdenesProductosRepository extends JpaRepository<OrdenesProduct
 
     List<OrdenesProductos> findAllByIndicadorHabilitadoTrue();
 
+    List<OrdenesProductos> findAllByIndicadorHabilitadoTrueAndIdOrden(Integer id);
+
 }

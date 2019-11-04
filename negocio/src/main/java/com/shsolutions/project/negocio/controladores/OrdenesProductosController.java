@@ -1,10 +1,14 @@
 package com.shsolutions.project.negocio.controladores;
 
+import com.shsolutions.project.negocio.modelos.Inventarios;
+import com.shsolutions.project.negocio.modelos.Ordenes;
 import com.shsolutions.project.negocio.modelos.OrdenesProductos;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 import static com.shsolutions.project.negocio.utilidades.Utilidades.DOMAIN;
 import static com.shsolutions.project.negocio.utilidades.Utilidades.restTemplate;

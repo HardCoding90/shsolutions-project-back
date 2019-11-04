@@ -29,6 +29,11 @@ public class OrdenesProductosController {
         return ordenesProductosRepository.findById(id).orElse(null);
     }
 
+    @GetMapping("/orden/{idOrden}")
+    List<OrdenesProductos> findByIdOrden(@PathVariable Integer idOrden) {
+        return ordenesProductosRepository.findAllByIndicadorHabilitadoTrueAndIdOrden(idOrden);
+    }
+
     @PostMapping("/saveAll")
     List<OrdenesProductos> saveAll(@RequestBody List<OrdenesProductos> ordenesProductos) {
         ordenesProductos.forEach(this::configurarValoresPorDefecto);
