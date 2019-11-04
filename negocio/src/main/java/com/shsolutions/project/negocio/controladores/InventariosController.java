@@ -36,6 +36,11 @@ public class InventariosController {
         return restTemplate.getForObject(DOMAIN_URL + "/findById/" + id, Inventarios.class);
     }
 
+    @PostMapping("/saveAll")
+    List<Inventarios> save(@RequestBody List<Inventarios> inventarios){
+        return Arrays.asList(restTemplate.postForObject(DOMAIN_URL + "/saveAll", inventarios, Inventarios[].class));
+    }
+
     @PostMapping()
     Inventarios save(@RequestBody Inventarios inventarios){
         return restTemplate.postForObject(DOMAIN_URL , inventarios, Inventarios.class);
