@@ -6,7 +6,7 @@ public class Inventarios {
 
     private Integer idInventario;
     private Integer idSucursal;
-    private Integer idProveedorProducto;
+    private Integer idProductoProveedor;
     private Integer stockMinimo;
     private Integer stockMaximo;
     private Integer cantidadExistente;
@@ -29,12 +29,12 @@ public class Inventarios {
         this.idSucursal = idSucursal;
     }
 
-    public Integer getIdProveedorProducto() {
-        return idProveedorProducto;
+    public Integer getIdProductoProveedor() {
+        return idProductoProveedor;
     }
 
-    public void setIdProveedorProducto(Integer idProveedorProducto) {
-        this.idProveedorProducto = idProveedorProducto;
+    public void setIdProductoProveedor(Integer idProductoProveedor) {
+        this.idProductoProveedor = idProductoProveedor;
     }
 
     public Integer getStockMinimo() {
