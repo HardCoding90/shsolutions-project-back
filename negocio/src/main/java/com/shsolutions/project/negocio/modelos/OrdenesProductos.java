@@ -11,6 +11,7 @@ public class OrdenesProductos {
     private BigDecimal valorCompraUnidad;
     private Integer cantidad;
     private Boolean indicadorHabilitado;
+    private Integer idProducto;
 
     public Integer getIdOrdenProducto() {
         return idOrdenProducto;
@@ -58,5 +59,13 @@ public class OrdenesProductos {
 
     public void setIndicadorHabilitado(Boolean indicadorHabilitado) {
         this.indicadorHabilitado = indicadorHabilitado;
+    }
+
+    public Integer getIdProducto() {
+        return idProducto;
+    }
+
+    public void setIdProducto(Integer idProducto) {
+        this.idProducto = idProducto;
     }
 }

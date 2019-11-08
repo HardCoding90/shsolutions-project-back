@@ -10,4 +10,6 @@ public interface InventariosRepository extends JpaRepository<Inventarios,Integer
     List<Inventarios> findAllByIndicadorHabilitadoTrue();
 
     List<Inventarios> findAllByIndicadorHabilitadoTrueAndIdSucursalAndIdProductoProveedorIn(Integer idSucursal,List<Integer> idsProductoProveedorList);
+
+    List<Inventarios> findAllByIndicadorHabilitadoTrueAndIdSucursalAndProductosProveedores_Productos_IdProductoIn(Integer idSucursal,List<Integer> ids);
 }

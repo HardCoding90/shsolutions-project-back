@@ -1,5 +1,7 @@
 package com.shsolutions.project.dominio.modelos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Objects;
@@ -14,6 +16,9 @@ public class OrdenesProductos {
     private BigDecimal valorCompraUnidad;
     private Integer cantidad;
     private Boolean indicadorHabilitado;
+
+    private ProductosProveedores productosProveedores;
+    private Integer idProducto;
 
     public OrdenesProductos() {
     }
@@ -77,6 +82,26 @@ public class OrdenesProductos {
 
     public void setIndicadorHabilitado(Boolean indicadorHabilitado) {
         this.indicadorHabilitado = indicadorHabilitado;
+    }
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "IdProductoProveedor", referencedColumnName = "IdProductoProveedor", insertable = false, updatable = false)
+    public ProductosProveedores getProductosProveedores() {
+        return productosProveedores;
+    }
+
+    public void setProductosProveedores(ProductosProveedores productosProveedores) {
+        this.productosProveedores = productosProveedores;
+    }
+
+    @Transient
+    public Integer getIdProducto() {
+        return productosProveedores != null ? productosProveedores.getIdProducto() : null;
+    }
+
+    public void setIdProducto(Integer idProducto) {
+        this.idProducto = idProducto;
     }
 
     @Override

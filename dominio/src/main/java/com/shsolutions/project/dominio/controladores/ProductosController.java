@@ -29,6 +29,11 @@ public class ProductosController {
         return productosRepository.findById(id).orElse(null);
     }
 
+    @PostMapping("/findByIdList")
+    List<Productos> findByIdList(@RequestBody List<Integer> idList) {
+        return productosRepository.findByIndicadorHabilitadoTrueAndIdProductoIn(idList);
+    }
+
     @PostMapping("/saveAll")
     List<Productos> saveAll(@RequestBody List<Productos> productos){
         return productosRepository.saveAll(productos);

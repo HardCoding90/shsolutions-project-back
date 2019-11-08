@@ -7,11 +7,11 @@ public class Inventarios {
     private Integer idInventario;
     private Integer idSucursal;
     private Integer idProductoProveedor;
-    private Integer stockMinimo;
-    private Integer stockMaximo;
     private Integer cantidadExistente;
     private BigDecimal valor;
     private Boolean indicadorHabilitado;
+
+    private Integer idProducto;
 
     public Integer getIdInventario() {
         return idInventario;
@@ -37,22 +37,6 @@ public class Inventarios {
         this.idProductoProveedor = idProductoProveedor;
     }
 
-    public Integer getStockMinimo() {
-        return stockMinimo;
-    }
-
-    public void setStockMinimo(Integer stockMinimo) {
-        this.stockMinimo = stockMinimo;
-    }
-
-    public Integer getStockMaximo() {
-        return stockMaximo;
-    }
-
-    public void setStockMaximo(Integer stockMaximo) {
-        this.stockMaximo = stockMaximo;
-    }
-
     public Integer getCantidadExistente() {
         return cantidadExistente;
     }
@@ -75,5 +59,13 @@ public class Inventarios {
 
     public void setIndicadorHabilitado(Boolean indicadorHabilitado) {
         this.indicadorHabilitado = indicadorHabilitado;
+    }
+
+    public Integer getIdProducto() {
+        return idProducto;
+    }
+
+    public void setIdProducto(Integer idProducto) {
+        this.idProducto = idProducto;
     }
 }

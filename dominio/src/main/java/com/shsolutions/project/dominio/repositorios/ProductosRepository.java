@@ -9,4 +9,6 @@ public interface ProductosRepository extends JpaRepository<Productos, Integer> {
 
     List<Productos> findAllByIndicadorHabilitadoTrue();
 
+    List<Productos> findByIndicadorHabilitadoTrueAndIdProductoIn(List<Integer> idList);
+
 }

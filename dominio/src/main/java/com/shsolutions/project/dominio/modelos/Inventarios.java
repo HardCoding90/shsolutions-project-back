@@ -1,5 +1,7 @@
 package com.shsolutions.project.dominio.modelos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Objects;
@@ -11,11 +13,12 @@ public class Inventarios {
     private Integer idInventario;
     private Integer idSucursal;
     private Integer idProductoProveedor;
-    private Integer stockMinimo;
-    private Integer stockMaximo;
     private Integer cantidadExistente;
     private BigDecimal valor;
     private Boolean indicadorHabilitado;
+
+    private ProductosProveedores productosProveedores;
+    private Integer idProducto;
 
     public Inventarios() {
     }
@@ -52,26 +55,6 @@ public class Inventarios {
     }
 
     @Basic
-    @Column(name = "StockMinimo")
-    public Integer getStockMinimo() {
-        return stockMinimo;
-    }
-
-    public void setStockMinimo(Integer stockMinimo) {
-        this.stockMinimo = stockMinimo;
-    }
-
-    @Basic
-    @Column(name = "StockMaximo")
-    public Integer getStockMaximo() {
-        return stockMaximo;
-    }
-
-    public void setStockMaximo(Integer stockMaximo) {
-        this.stockMaximo = stockMaximo;
-    }
-
-    @Basic
     @Column(name = "CantidadExistente")
     public Integer getCantidadExistente() {
         return cantidadExistente;
@@ -101,6 +84,26 @@ public class Inventarios {
         this.indicadorHabilitado = indicadorHabilitado;
     }
 
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "IdProductoProveedor", referencedColumnName = "IdProductoProveedor", insertable = false, updatable = false)
+    public ProductosProveedores getProductosProveedores() {
+        return productosProveedores;
+    }
+
+    public void setProductosProveedores(ProductosProveedores productosProveedores) {
+        this.productosProveedores = productosProveedores;
+    }
+
+    @Transient
+    public Integer getIdProducto() {
+        return productosProveedores != null ? productosProveedores.getIdProducto() : null;
+    }
+
+    public void setIdProducto(Integer idProducto) {
+        this.idProducto = idProducto;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -109,8 +112,6 @@ public class Inventarios {
         return Objects.equals(getIdInventario(), that.getIdInventario()) &&
                 Objects.equals(getIdSucursal(), that.getIdSucursal()) &&
                 Objects.equals(getIdProductoProveedor(), that.getIdProductoProveedor()) &&
-                Objects.equals(getStockMinimo(), that.getStockMinimo()) &&
-                Objects.equals(getStockMaximo(), that.getStockMaximo()) &&
                 Objects.equals(getCantidadExistente(), that.getCantidadExistente()) &&
                 Objects.equals(getValor(), that.getValor()) &&
                 Objects.equals(getIndicadorHabilitado(), that.getIndicadorHabilitado());
@@ -118,6 +119,6 @@ public class Inventarios {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getIdInventario(), getIdSucursal(), getIdProductoProveedor(), getStockMinimo(), getStockMaximo(), getCantidadExistente(), getValor(), getIndicadorHabilitado());
+        return Objects.hash(getIdInventario(), getIdSucursal(), getIdProductoProveedor(), getCantidadExistente(), getValor(), getIndicadorHabilitado());
     }
 }

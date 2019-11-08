@@ -1,15 +1,17 @@
 package com.shsolutions.project.negocio.modelos;
 
 import java.time.LocalDateTime;
-import java.util.Objects;
+import java.util.List;
 
 public class Ventas {
 
-    private Integer idVenta;;
+    private Integer idVenta;
     private Integer idSucursal;
     private Integer idPersonaVenta;
     private LocalDateTime fechaVenta;
     private Boolean indicadorHabilitado;
+
+    private List<ProductosVentasDTO> productosVentasDTOList;
 
     public Integer getIdVenta() {
         return idVenta;
@@ -49,5 +51,13 @@ public class Ventas {
 
     public void setIndicadorHabilitado(Boolean indicadorHabilitado) {
         this.indicadorHabilitado = indicadorHabilitado;
+    }
+
+    public List<ProductosVentasDTO> getProductosVentasDTOList() {
+        return productosVentasDTOList;
+    }
+
+    public void setProductosVentasDTOList(List<ProductosVentasDTO> productosVentasDTOList) {
+        this.productosVentasDTOList = productosVentasDTOList;
     }
 }
