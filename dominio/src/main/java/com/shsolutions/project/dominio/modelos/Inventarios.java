@@ -3,12 +3,13 @@ package com.shsolutions.project.dominio.modelos;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
 
 @Entity
 @Table(name = "inventarios", catalog = "shsolutions")
-public class Inventarios {
+public class Inventarios implements Serializable {
 
     private Integer idInventario;
     private Integer idSucursal;

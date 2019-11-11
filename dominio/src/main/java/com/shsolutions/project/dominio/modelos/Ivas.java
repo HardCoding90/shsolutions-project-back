@@ -1,12 +1,13 @@
 package com.shsolutions.project.dominio.modelos;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
 
 @Entity
 @Table(name = "ivas", catalog = "shsolutions")
-public class Ivas {
+public class Ivas implements Serializable {
 
     private Integer idIva;
     private BigDecimal valorPorcentaje;

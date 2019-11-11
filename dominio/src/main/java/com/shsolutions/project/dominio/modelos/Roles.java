@@ -1,11 +1,12 @@
 package com.shsolutions.project.dominio.modelos;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @Table(name = "roles", catalog = "shsolutions")
-public class Roles {
+public class Roles implements Serializable {
 
     private Integer idRol;
     private String codigo;

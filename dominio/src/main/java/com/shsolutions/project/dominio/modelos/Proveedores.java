@@ -3,13 +3,14 @@ package com.shsolutions.project.dominio.modelos;
 import com.shsolutions.project.dominio.configuracion.LocalDateConverter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
 @Table(name = "proveedores", catalog = "shsolutions")
-public class Proveedores {
+public class Proveedores implements Serializable {
 
     private Integer idProveedor;
     private String razonSocial;

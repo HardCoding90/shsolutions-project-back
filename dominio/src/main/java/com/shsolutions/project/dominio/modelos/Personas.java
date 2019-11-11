@@ -4,12 +4,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.shsolutions.project.dominio.configuracion.LocalDateConverter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
 @Table(name = "personas", catalog = "shsolutions")
-public class Personas {
+public class Personas implements Serializable {
 
     private Integer idPersona;
     private String primerNombre;

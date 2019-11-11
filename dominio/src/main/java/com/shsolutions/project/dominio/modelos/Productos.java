@@ -1,12 +1,13 @@
 package com.shsolutions.project.dominio.modelos;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
 
 @Entity
 @Table(name = "productos", catalog = "shsolutions")
-public class Productos {
+public class Productos implements Serializable {
 
     private Integer idProducto;
     private String producto;

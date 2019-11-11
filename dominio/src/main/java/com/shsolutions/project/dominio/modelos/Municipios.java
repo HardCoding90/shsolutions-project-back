@@ -3,11 +3,12 @@ package com.shsolutions.project.dominio.modelos;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @Table(name = "municipios", catalog = "shsolutions")
-public class Municipios {
+public class Municipios implements Serializable {
     private Integer idMunicipio;
     private Integer idDepartamento;
     private String codigo;

@@ -3,11 +3,12 @@ package com.shsolutions.project.dominio.modelos;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @Table(name = "sucursales", catalog = "shsolutions")
-public class Sucursales {
+public class Sucursales implements Serializable {
 
     private Integer idSucursal;
     private String email;
