@@ -41,7 +41,10 @@ public class VentasController {
 
     @PostMapping()
     Ventas save(@RequestBody Ventas ventas) {
-        return restTemplate.postForObject(DOMAIN_URL, ventas, Ventas.class);
+        Ventas venta =  restTemplate.postForObject(DOMAIN_URL, ventas, Ventas.class);
+        ventas.setIdVenta(venta.getIdVenta());
+        realizarVenta(venta);
+        return venta;
     }
 
     @PutMapping()
@@ -49,7 +52,7 @@ public class VentasController {
         return restTemplate.postForObject(DOMAIN_URL, ventas, Ventas.class);
     }
 
-    @PostMapping("/realizarVenta")
+    //@PostMapping("/realizarVenta")
     void realizarVenta(@RequestBody Ventas ventas) {
         List<Inventarios> inventariosConCantidadExistente;
         HashMap<Integer, Integer> ventasProductosProveedores = new HashMap<>();
