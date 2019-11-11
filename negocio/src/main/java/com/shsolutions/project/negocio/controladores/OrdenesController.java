@@ -52,7 +52,7 @@ public class OrdenesController {
         if(ordenes.getOrdenesProductos() != null && !ordenes.getOrdenesProductos().isEmpty()){
             ordenesProductos = ordenes.getOrdenesProductos();
             ordenesProductos.forEach(x -> x.setIdOrden(idOrden));
-            Arrays.asList(restTemplate.postForObject(DOMAIN_URL + "/saveAll", ordenesProductos, OrdenesProductos[].class));
+            Arrays.asList(restTemplate.postForObject(DOMAIN_URL_ORDENES_PRODUCTOS + "/saveAll", ordenesProductos, OrdenesProductos[].class));
         }
         return orden;
     }
