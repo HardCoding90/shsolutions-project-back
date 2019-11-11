@@ -72,7 +72,7 @@ public class Municipios {
 
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "IdDepartamento", foreignKey = @ForeignKey(name = "IdDepartamento"), updatable = false, insertable = false)
+    @JoinColumn(name = "IdDepartamento",referencedColumnName = "IdDepartamento", updatable = false, insertable = false)
     public Departamentos getDepartamentos() {
         return departamentos;
     }

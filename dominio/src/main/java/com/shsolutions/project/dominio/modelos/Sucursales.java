@@ -107,7 +107,7 @@ public class Sucursales {
 
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "IdMunicipio", foreignKey = @ForeignKey(name = "IdMunicipio"), updatable = false, insertable = false)
+    @JoinColumn(name = "IdMunicipio", referencedColumnName = "IdMunicipio", updatable = false, insertable = false)
     public Municipios getMunicipios() {
         return municipios;
     }

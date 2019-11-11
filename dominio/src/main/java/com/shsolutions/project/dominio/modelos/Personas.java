@@ -210,7 +210,7 @@ public class Personas {
 
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "IdPersona", foreignKey = @ForeignKey(name = "IdPersona"), updatable = false, insertable = false)
+    @JoinColumn(name = "IdPersona", referencedColumnName = "IdPersona", updatable = false, insertable = false)
     public Usuarios getUsuarios() {
         return usuarios;
     }
