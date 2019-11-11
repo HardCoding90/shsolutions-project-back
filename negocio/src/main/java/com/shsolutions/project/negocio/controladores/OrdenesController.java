@@ -45,7 +45,16 @@ public class OrdenesController {
 
     @PostMapping()
     Ordenes save(@RequestBody Ordenes ordenes) {
-        return restTemplate.postForObject(DOMAIN_URL, ordenes, Ordenes.class);
+        Ordenes orden = restTemplate.postForObject(DOMAIN_URL, ordenes, Ordenes.class);
+        List<OrdenesProductos> ordenesProductos;
+        int idOrden = orden.getIdOrden();
+        ordenes.setIdOrden(idOrden);
+        if(ordenes.getOrdenesProductos() != null && !ordenes.getOrdenesProductos().isEmpty()){
+            ordenesProductos = ordenes.getOrdenesProductos();
+            ordenesProductos.forEach(x -> x.setIdOrden(idOrden));
+            Arrays.asList(restTemplate.postForObject(DOMAIN_URL + "/saveAll", ordenesProductos, OrdenesProductos[].class));
+        }
+        return orden;
     }
 
     @PutMapping()

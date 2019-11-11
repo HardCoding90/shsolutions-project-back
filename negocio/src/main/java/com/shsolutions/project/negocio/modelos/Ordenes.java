@@ -1,6 +1,7 @@
 package com.shsolutions.project.negocio.modelos;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class Ordenes {
 
@@ -9,6 +10,8 @@ public class Ordenes {
     private LocalDateTime fechaOrden ;
     private Boolean indicadorRecibida;
     private Boolean indicadorHabilitado;
+
+    private List<OrdenesProductos> ordenesProductos;
 
     public Integer getIdOrden() {
         return idOrden;
@@ -48,5 +51,13 @@ public class Ordenes {
 
     public void setIndicadorHabilitado(Boolean indicadorHabilitado) {
         this.indicadorHabilitado = indicadorHabilitado;
+    }
+
+    public List<OrdenesProductos> getOrdenesProductos() {
+        return ordenesProductos;
+    }
+
+    public void setOrdenesProductos(List<OrdenesProductos> ordenesProductos) {
+        this.ordenesProductos = ordenesProductos;
     }
 }
