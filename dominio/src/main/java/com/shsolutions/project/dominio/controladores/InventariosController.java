@@ -34,9 +34,15 @@ public class InventariosController {
     List<Inventarios> findByIdProductoProveedorList(@PathVariable Integer idSucursal, @RequestBody List<Integer> idList) {
         return inventariosRepository.findAllByIndicadorHabilitadoTrueAndIdSucursalAndIdProductoProveedorIn(idSucursal,idList);
     }
+
     @PostMapping("/sucursal/{idSucursal}/productoIdList")
     List<Inventarios> findByIdProductoList(@PathVariable Integer idSucursal, @RequestBody List<Integer> idList) {
         return inventariosRepository.findAllByIndicadorHabilitadoTrueAndIdSucursalAndProductosProveedores_Productos_IdProductoIn(idSucursal,idList);
+    }
+
+    @PostMapping("/sucursal/{idSucursal}")
+    List<Inventarios> findByIdSucursal(@PathVariable Integer idSucursal) {
+        return inventariosRepository.findAllByIndicadorHabilitadoTrueAndIdSucursal(idSucursal);
     }
 
     @PostMapping("/idsList")
