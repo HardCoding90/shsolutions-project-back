@@ -1,5 +1,7 @@
 package com.shsolutions.project.dominio.modelos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -15,6 +17,9 @@ public class Sucursales {
     private String barrio;
     private Integer idMunicipio;
     private Boolean indicadorHabilitado;
+
+    private Municipios municipios;
+    private String municipio;
 
     public Sucursales() {
     }
@@ -98,6 +103,26 @@ public class Sucursales {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "IdMunicipio", foreignKey = @ForeignKey(name = "IdMunicipio"), updatable = false, insertable = false)
+    public Municipios getMunicipios() {
+        return municipios;
+    }
+
+    public void setMunicipios(Municipios municipios) {
+        this.municipios = municipios;
+    }
+
+    @Transient
+    public String getMunicipio() {
+        return municipios != null ? municipios.getMunicipio() : null;
+    }
+
+    public void setMunicipio(String municipio) {
+        this.municipio = municipio;
     }
 
     @Override

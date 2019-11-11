@@ -10,6 +10,7 @@ public class Sucursales {
     private String barrio;
     private Integer idMunicipio;
     private Boolean indicadorHabilitado;
+    private String municipio;
 
     public String getEmail() {
         return email;
@@ -73,5 +74,13 @@ public class Sucursales {
 
     public void setIndicadorHabilitado(Boolean indicadorHabilitado) {
         this.indicadorHabilitado = indicadorHabilitado;
+    }
+
+    public String getMunicipio() {
+        return municipio;
+    }
+
+    public void setMunicipio(String municipio) {
+        this.municipio = municipio;
     }
 }
