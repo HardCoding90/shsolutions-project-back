@@ -1,10 +1,10 @@
 package com.shsolutions.project.dominio.modelos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.shsolutions.project.dominio.configuracion.LocalDateConverter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
@@ -28,6 +28,9 @@ public class Personas {
     private Boolean indicadorCliente;
     private LocalDate fechaRegistro;
     private Boolean indicadorHabilitado;
+
+    private Usuarios usuarios;
+    private Integer idSucursal;
 
     public Personas() {
     }
@@ -203,6 +206,26 @@ public class Personas {
 
     public void setIndicadorCliente(Boolean indicadorCliente) {
         this.indicadorCliente = indicadorCliente;
+    }
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "IdPersona", foreignKey = @ForeignKey(name = "IdPersona"), updatable = false, insertable = false)
+    public Usuarios getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(Usuarios usuarios) {
+        this.usuarios = usuarios;
+    }
+
+    @Transient
+    public Integer getIdSucursal() {
+        return usuarios != null ? usuarios.getIdSucursal() : null;
+    }
+
+    public void setIdSucursal(Integer idSucursal) {
+        this.idSucursal = idSucursal;
     }
 
     @Override
