@@ -12,6 +12,7 @@ public class Inventarios {
     private Boolean indicadorHabilitado;
 
     private Integer idProducto;
+    private String producto;
 
     public Integer getIdInventario() {
         return idInventario;
@@ -67,5 +68,13 @@ public class Inventarios {
 
     public void setIdProducto(Integer idProducto) {
         this.idProducto = idProducto;
+    }
+
+    public String getProducto() {
+        return producto;
+    }
+
+    public void setProducto(String producto) {
+        this.producto = producto;
     }
 }

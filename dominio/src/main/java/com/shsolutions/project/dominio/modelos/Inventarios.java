@@ -20,6 +20,7 @@ public class Inventarios implements Serializable {
 
     private ProductosProveedores productosProveedores;
     private Integer idProducto;
+    private String producto;
 
     public Inventarios() {
     }
@@ -103,6 +104,15 @@ public class Inventarios implements Serializable {
 
     public void setIdProducto(Integer idProducto) {
         this.idProducto = idProducto;
+    }
+
+    @Transient
+    public String getProducto() {
+        return productosProveedores != null ? (productosProveedores.getProductos() != null ? productosProveedores.getProductos().getProducto() : null) : null ;
+    }
+
+    public void setProducto(String producto) {
+        this.producto = producto;
     }
 
     @Override
