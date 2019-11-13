@@ -8,5 +8,6 @@ import java.util.List;
 public interface ProductosProveedoresRepository extends JpaRepository<ProductosProveedores, Integer> {
 
     List<ProductosProveedores> findAllByIndicadorHabilitadoTrue();
+    List<ProductosProveedores> findAllByIndicadorHabilitadoTrueAndIdProveedor(Integer idProveedor);
 
 }

@@ -29,6 +29,11 @@ public class ProductosProveedoresController {
         return productosProveedoresRepository.findById(id).orElse(null);
     }
 
+    @GetMapping("/proveedor/{idProveedor}")
+    List<ProductosProveedores> findByProveedor(@PathVariable Integer idProveedor) {
+        return productosProveedoresRepository.findAllByIndicadorHabilitadoTrueAndIdProveedor(idProveedor);
+    }
+
     @PostMapping("/saveAll")
     List<ProductosProveedores> save(@RequestBody List<ProductosProveedores> productosProveedoresList) {
         return productosProveedoresRepository.saveAll(productosProveedoresList);
