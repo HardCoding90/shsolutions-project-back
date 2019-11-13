@@ -11,6 +11,10 @@ public class ProductosProveedores {
     private BigDecimal valorUnidadCompra;
     private Boolean indicadorHabilitado;
 
+    private String producto;
+    private String marca;
+    private String referencia;
+
     public Integer getIdProductoProveedor() {
         return idProductoProveedor;
     }
@@ -49,5 +53,29 @@ public class ProductosProveedores {
 
     public void setIndicadorHabilitado(Boolean indicadorHabilitado) {
         this.indicadorHabilitado = indicadorHabilitado;
+    }
+
+    public String getProducto() {
+        return producto;
+    }
+
+    public void setProducto(String producto) {
+        this.producto = producto;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public String getReferencia() {
+        return referencia;
+    }
+
+    public void setReferencia(String referencia) {
+        this.referencia = referencia;
     }
 }
