@@ -44,6 +44,7 @@ public class ProductosProveedoresController {
             if(prpro != null){
                 pr.setIdProductoProveedor(prpro.getIdProductoProveedor());
                 pr.setIndicadorHabilitado(true);
+                prpro = null;
             }
             productosProveedores.add(pr);
         }
