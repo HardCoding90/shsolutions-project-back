@@ -5,6 +5,7 @@ import com.shsolutions.project.dominio.repositorios.ProductosProveedoresReposito
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -36,7 +37,17 @@ public class ProductosProveedoresController {
 
     @PostMapping("/saveAll")
     List<ProductosProveedores> save(@RequestBody List<ProductosProveedores> productosProveedoresList) {
-        return productosProveedoresRepository.saveAll(productosProveedoresList);
+        List<ProductosProveedores> productosProveedores = new ArrayList<>();
+        ProductosProveedores prpro = null;
+        for(ProductosProveedores pr: productosProveedoresList){
+            prpro = productosProveedoresRepository.findByIdProductoAndIdProveedor(pr.getIdProducto(),pr.getIdProveedor());
+            if(prpro != null){
+                pr.setIdProductoProveedor(prpro.getIdProductoProveedor());
+                pr.setIndicadorHabilitado(true);
+            }
+            productosProveedores.add(pr);
+        }
+        return productosProveedoresRepository.saveAll(productosProveedores);
     }
 
     @PostMapping()
