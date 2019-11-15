@@ -35,8 +35,8 @@ public class ProductosProveedoresController {
         return productosProveedoresRepository.findAllByIndicadorHabilitadoTrueAndIdProveedor(idProveedor);
     }
 
-    @PostMapping("/saveAll")
-    List<ProductosProveedores> save(@RequestBody List<ProductosProveedores> productosProveedoresList) {
+    @PostMapping("/saveAll/{id}")
+    List<ProductosProveedores> save(@RequestBody List<ProductosProveedores> productosProveedoresList,@PathVariable Integer id) {
         /*List<ProductosProveedores> productosProveedores = new ArrayList<>();
         ProductosProveedores prpro = null;
         for(ProductosProveedores pr: productosProveedoresList){
@@ -48,7 +48,12 @@ public class ProductosProveedoresController {
             }
             productosProveedores.add(pr);
         }*/
-        return productosProveedoresRepository.saveAll(productosProveedoresList);
+        List<ProductosProveedores> productosProveedores = productosProveedoresRepository.findAllByIdProveedor(id);
+        if(!productosProveedores.isEmpty()){
+            productosProveedores.forEach(x -> x.setIndicadorHabilitado(false));
+            productosProveedoresRepository.saveAll(productosProveedores);
+        }
+        return !productosProveedoresList.isEmpty() ?  productosProveedoresRepository.saveAll(productosProveedoresList) : productosProveedoresList;
     }
 
     @PostMapping()

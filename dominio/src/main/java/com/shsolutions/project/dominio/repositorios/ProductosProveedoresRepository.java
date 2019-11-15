@@ -10,4 +10,5 @@ public interface ProductosProveedoresRepository extends JpaRepository<ProductosP
     List<ProductosProveedores> findAllByIndicadorHabilitadoTrue();
     List<ProductosProveedores> findAllByIndicadorHabilitadoTrueAndIdProveedor(Integer idProveedor);
     ProductosProveedores findByIdProductoAndIdProveedor(Integer idProducto, Integer idProveedor);
+    List<ProductosProveedores> findAllByIdProveedor(Integer idProveedor);
 }
