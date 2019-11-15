@@ -37,7 +37,7 @@ public class ProductosProveedoresController {
 
     @PostMapping("/saveAll")
     List<ProductosProveedores> save(@RequestBody List<ProductosProveedores> productosProveedoresList) {
-        List<ProductosProveedores> productosProveedores = new ArrayList<>();
+        /*List<ProductosProveedores> productosProveedores = new ArrayList<>();
         ProductosProveedores prpro = null;
         for(ProductosProveedores pr: productosProveedoresList){
             prpro = productosProveedoresRepository.findByIdProductoAndIdProveedor(pr.getIdProducto(),pr.getIdProveedor());
@@ -47,8 +47,8 @@ public class ProductosProveedoresController {
                 prpro = null;
             }
             productosProveedores.add(pr);
-        }
-        return productosProveedoresRepository.saveAll(productosProveedores);
+        }*/
+        return productosProveedoresRepository.saveAll(productosProveedoresList);
     }
 
     @PostMapping()
