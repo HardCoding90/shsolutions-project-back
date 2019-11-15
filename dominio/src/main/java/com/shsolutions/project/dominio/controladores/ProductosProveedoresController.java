@@ -37,23 +37,25 @@ public class ProductosProveedoresController {
 
     @PostMapping("/saveAll/{id}")
     List<ProductosProveedores> save(@RequestBody List<ProductosProveedores> productosProveedoresList,@PathVariable Integer id) {
-        /*List<ProductosProveedores> productosProveedores = new ArrayList<>();
-        ProductosProveedores prpro = null;
-        for(ProductosProveedores pr: productosProveedoresList){
-            prpro = productosProveedoresRepository.findByIdProductoAndIdProveedor(pr.getIdProducto(),pr.getIdProveedor());
-            if(prpro != null){
-                pr.setIdProductoProveedor(prpro.getIdProductoProveedor());
-                pr.setIndicadorHabilitado(true);
-                prpro = null;
-            }
-            productosProveedores.add(pr);
-        }*/
-        List<ProductosProveedores> productosProveedores = productosProveedoresRepository.findAllByIdProveedor(id);
+        List<ProductosProveedores> productosProveedores = productosProveedoresRepository.findAllByIdProveedorAndIndicadorHabilitadoIsTrue(id);
         if(!productosProveedores.isEmpty()){
             productosProveedores.forEach(x -> x.setIndicadorHabilitado(false));
             productosProveedoresRepository.saveAll(productosProveedores);
         }
-        return !productosProveedoresList.isEmpty() ?  productosProveedoresRepository.saveAll(productosProveedoresList) : productosProveedoresList;
+        productosProveedores.clear();
+        if(!productosProveedoresList.isEmpty()){
+            ProductosProveedores prpro = null;
+            for(ProductosProveedores pr: productosProveedoresList){
+                prpro = productosProveedoresRepository.findByIdProductoAndIdProveedor(pr.getIdProducto(),pr.getIdProveedor());
+                if(prpro != null){
+                    pr.setIdProductoProveedor(prpro.getIdProductoProveedor());
+                    pr.setIndicadorHabilitado(true);
+                    prpro = null;
+                }
+                productosProveedores.add(pr);
+            }
+        }
+        return  productosProveedoresRepository.saveAll(productosProveedores);
     }
 
     @PostMapping()
