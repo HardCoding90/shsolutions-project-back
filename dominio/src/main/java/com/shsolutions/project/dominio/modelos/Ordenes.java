@@ -1,10 +1,13 @@
 package com.shsolutions.project.dominio.modelos;
 
 import com.shsolutions.project.dominio.configuracion.LocalDateTimeConverter;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -16,6 +19,8 @@ public class Ordenes implements Serializable {
     private LocalDateTime fechaOrden;
     private Boolean indicadorRecibida;
     private Boolean indicadorHabilitado;
+
+    private List<OrdenesProductos> ordenesProductos = new ArrayList<>();
 
     public Ordenes() {
     }
@@ -70,6 +75,17 @@ public class Ordenes implements Serializable {
 
     public void setIndicadorHabilitado(Boolean indicadorHabilitado) {
         this.indicadorHabilitado = indicadorHabilitado;
+    }
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @Where(clause = "IndicadorHabilitado = true")
+    @JoinColumn(name = "IdOrden",referencedColumnName = "IdOrden")
+    public List<OrdenesProductos> getOrdenesProductos() {
+        return ordenesProductos;
+    }
+
+    public void setOrdenesProductos(List<OrdenesProductos> ordenesProductos) {
+        this.ordenesProductos = ordenesProductos;
     }
 
     @Override
