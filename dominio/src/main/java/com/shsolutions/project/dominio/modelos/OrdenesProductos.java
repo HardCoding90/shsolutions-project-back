@@ -20,6 +20,12 @@ public class OrdenesProductos implements Serializable {
 
     private ProductosProveedores productosProveedores;
     private Integer idProducto;
+    private String producto;
+    private String marca;
+    private String referencia;
+
+    private Integer idProveedor;
+    private BigDecimal valorUnidadCompra;
 
     public OrdenesProductos() {
     }
@@ -103,6 +109,51 @@ public class OrdenesProductos implements Serializable {
 
     public void setIdProducto(Integer idProducto) {
         this.idProducto = idProducto;
+    }
+
+    @Transient
+    public String getProducto() {
+        return productosProveedores != null ? productosProveedores.getProducto() : null;
+    }
+
+    public void setProducto(String producto) {
+        this.producto = producto;
+    }
+
+    @Transient
+    public String getMarca() {
+        return productosProveedores != null ? productosProveedores.getMarca() : null;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    @Transient
+    public String getReferencia() {
+        return productosProveedores != null ? productosProveedores.getReferencia() : null;
+    }
+
+    public void setReferencia(String referencia) {
+        this.referencia = referencia;
+    }
+
+    @Transient
+    public Integer getIdProveedor() {
+        return productosProveedores != null ? productosProveedores.getIdProveedor() : null;
+    }
+
+    public void setIdProveedor(Integer idProveedor) {
+        this.idProveedor = idProveedor;
+    }
+
+    @Transient
+    public BigDecimal getValorUnidadCompra() {
+        return productosProveedores != null ? productosProveedores.getValorUnidadCompra() : null;
+    }
+
+    public void setValorUnidadCompra(BigDecimal valorUnidadCompra) {
+        this.valorUnidadCompra = valorUnidadCompra;
     }
 
     @Override

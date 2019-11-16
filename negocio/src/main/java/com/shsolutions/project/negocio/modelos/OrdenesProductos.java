@@ -12,6 +12,11 @@ public class OrdenesProductos {
     private Integer cantidad;
     private Boolean indicadorHabilitado;
     private Integer idProducto;
+    private String producto;
+    private String marca;
+    private String referencia;
+    private Integer idProveedor;
+    private BigDecimal valorUnidadCompra;
 
     public Integer getIdOrdenProducto() {
         return idOrdenProducto;
@@ -67,5 +72,45 @@ public class OrdenesProductos {
 
     public void setIdProducto(Integer idProducto) {
         this.idProducto = idProducto;
+    }
+
+    public String getProducto() {
+        return producto;
+    }
+
+    public void setProducto(String producto) {
+        this.producto = producto;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public String getReferencia() {
+        return referencia;
+    }
+
+    public void setReferencia(String referencia) {
+        this.referencia = referencia;
+    }
+
+    public Integer getIdProveedor() {
+        return idProveedor;
+    }
+
+    public void setIdProveedor(Integer idProveedor) {
+        this.idProveedor = idProveedor;
+    }
+
+    public BigDecimal getValorUnidadCompra() {
+        return valorUnidadCompra;
+    }
+
+    public void setValorUnidadCompra(BigDecimal valorUnidadCompra) {
+        this.valorUnidadCompra = valorUnidadCompra;
     }
 }
