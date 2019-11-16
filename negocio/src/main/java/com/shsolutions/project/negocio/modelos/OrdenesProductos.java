@@ -16,7 +16,6 @@ public class OrdenesProductos {
     private String marca;
     private String referencia;
     private Integer idProveedor;
-    private BigDecimal valorUnidadCompra;
 
     public Integer getIdOrdenProducto() {
         return idOrdenProducto;
@@ -104,13 +103,5 @@ public class OrdenesProductos {
 
     public void setIdProveedor(Integer idProveedor) {
         this.idProveedor = idProveedor;
-    }
-
-    public BigDecimal getValorUnidadCompra() {
-        return valorUnidadCompra;
-    }
-
-    public void setValorUnidadCompra(BigDecimal valorUnidadCompra) {
-        this.valorUnidadCompra = valorUnidadCompra;
     }
 }

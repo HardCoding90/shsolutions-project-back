@@ -25,7 +25,6 @@ public class OrdenesProductos implements Serializable {
     private String referencia;
 
     private Integer idProveedor;
-    private BigDecimal valorUnidadCompra;
 
     public OrdenesProductos() {
     }
@@ -145,15 +144,6 @@ public class OrdenesProductos implements Serializable {
 
     public void setIdProveedor(Integer idProveedor) {
         this.idProveedor = idProveedor;
-    }
-
-    @Transient
-    public BigDecimal getValorUnidadCompra() {
-        return productosProveedores != null ? productosProveedores.getValorUnidadCompra() : null;
-    }
-
-    public void setValorUnidadCompra(BigDecimal valorUnidadCompra) {
-        this.valorUnidadCompra = valorUnidadCompra;
     }
 
     @Override
