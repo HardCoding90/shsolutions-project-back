@@ -1,8 +1,6 @@
 package com.shsolutions.project.negocio.controladores;
 
-import com.shsolutions.project.negocio.modelos.Personas;
-import com.shsolutions.project.negocio.modelos.Usuarios;
-import com.shsolutions.project.negocio.modelos.UsuariosRoles;
+import com.shsolutions.project.negocio.modelos.*;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
@@ -19,6 +17,8 @@ public class PersonasController {
     private final String DOMAIN_URL = DOMAIN + "personas";
     private final String DOMAIN_URL_USUARIOS = DOMAIN + "usuarios";
     private final String DOMAIN_URL_USUARIOS_ROLES = DOMAIN + "usuariosRoles";
+    private final String DOMAIN_URL_SUCURSALES = DOMAIN + "sucursales";
+    private final String DOMAIN_URL_ROLES = DOMAIN + "roles";
 
     @GetMapping("/cascaron")
     Personas cascaron() {
@@ -44,8 +44,8 @@ public class PersonasController {
     Personas save(@RequestBody Personas personas) {
         Personas persona = restTemplate.postForObject(DOMAIN_URL, personas, Personas.class);
         if (personas != null && personas.getIndicadorCliente() != null && !personas.getIndicadorCliente()) {
-            persona.setIdRol(personas.getIdRol());
-            persona.setIdSucursal(personas.getIdSucursal());
+            persona.setIdRol(Arrays.asList(restTemplate.getForObject(DOMAIN_URL_ROLES + "/findAll", Roles[].class)).stream().filter(x -> x.getIdRol() != null).findFirst().get().getIdRol());
+            persona.setIdSucursal(Arrays.asList(restTemplate.getForObject(DOMAIN_URL_SUCURSALES + "/findAll", Sucursales[].class)).stream().filter(x -> x.getIdSucursal() != null).findFirst().get().getIdSucursal());
             agregarRolAlUsuario(crearUsuarioPersona(persona), persona.getIdRol());
         }
         return persona;
