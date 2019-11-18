@@ -108,7 +108,8 @@ public class Inventarios implements Serializable {
 
     @Transient
     public String getProducto() {
-        return productosProveedores != null ? (productosProveedores.getProductos() != null ? productosProveedores.getProductos().getProducto() + " - " + productosProveedores.getProductos().getMarca() + " - " + productosProveedores.getProductos().getReferencia(): null) : null ;
+        return productosProveedores != null ? (productosProveedores.getProductos() != null ? productosProveedores.getProductos().getProducto() +
+                " - " + productosProveedores.getProductos().getMarca() + " - " + productosProveedores.getProductos().getReferencia() + " - " + productosProveedores.getProveedores().getRazonSocial(): null) : null ;
     }
 
     public void setProducto(String producto) {

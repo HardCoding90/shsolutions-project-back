@@ -17,6 +17,8 @@ public class ProductosProveedores implements Serializable {
     private BigDecimal valorUnidadCompra;
     private Boolean indicadorHabilitado;
 
+    private Proveedores proveedores;
+
     private Productos productos;
     private String producto;
     private String marca;
@@ -85,6 +87,17 @@ public class ProductosProveedores implements Serializable {
 
     public void setProductos(Productos productos) {
         this.productos = productos;
+    }
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "IdProveedor", referencedColumnName = "IdProveedor", insertable = false, updatable = false)
+    public Proveedores getProveedores() {
+        return proveedores;
+    }
+
+    public void setProveedores(Proveedores proveedores) {
+        this.proveedores = proveedores;
     }
 
     @Transient
