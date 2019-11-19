@@ -45,6 +45,7 @@ public class VentasController {
         Ventas venta =  restTemplate.postForObject(DOMAIN_URL, ventas, Ventas.class);
         ventas.setIdVenta(venta.getIdVenta());
         ventas.setTotal(realizarVenta(venta));
+        update(ventas);
         return venta;
     }
 

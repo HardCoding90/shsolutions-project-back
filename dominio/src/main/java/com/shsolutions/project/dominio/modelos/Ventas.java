@@ -17,6 +17,7 @@ public class Ventas implements Serializable {
     private Integer idPersonaVenta;
     private LocalDateTime fechaVenta;
     private Boolean indicadorHabilitado;
+    private Double total;
 
     private Personas personas;
     private String nombrePersona;
@@ -74,6 +75,16 @@ public class Ventas implements Serializable {
 
     public void setIndicadorHabilitado(Boolean indicadorHabilitado) {
         this.indicadorHabilitado = indicadorHabilitado;
+    }
+
+    @Basic
+    @Column(name = "Total")
+    public Double getTotal() {
+        return total;
+    }
+
+    public void setTotal(Double total) {
+        this.total = total;
     }
 
     @JsonIgnore
