@@ -9,7 +9,7 @@ public class VentasProductos {
     private Integer idVenta;
     private Integer idInventario;
     private Integer cantidadVendida;
-    private BigDecimal valorVentaUnidad;
+    private Double valorVentaUnidad;
     private LocalDateTime fechaAgenda;
     private Boolean indicadorHabilitado;
 
@@ -45,11 +45,11 @@ public class VentasProductos {
         this.cantidadVendida = cantidadVendida;
     }
 
-    public BigDecimal getValorVentaUnidad() {
+    public Double getValorVentaUnidad() {
         return valorVentaUnidad;
     }
 
-    public void setValorVentaUnidad(BigDecimal valorVentaUnidad) {
+    public void setValorVentaUnidad(Double valorVentaUnidad) {
         this.valorVentaUnidad = valorVentaUnidad;
     }
 

@@ -16,7 +16,7 @@ public class VentasProductos implements Serializable {
     private Integer idVenta;
     private Integer idInventario;
     private Integer cantidadVendida;
-    private BigDecimal valorVentaUnidad;
+    private Double valorVentaUnidad;
     private LocalDateTime fechaAgenda;
     private Boolean indicadorHabilitado;
 
@@ -66,11 +66,11 @@ public class VentasProductos implements Serializable {
 
     @Basic
     @Column(name = "ValorVentaUnidad")
-    public BigDecimal getValorVentaUnidad() {
+    public Double getValorVentaUnidad() {
         return valorVentaUnidad;
     }
 
-    public void setValorVentaUnidad(BigDecimal valorVentaUnidad) {
+    public void setValorVentaUnidad(Double valorVentaUnidad) {
         this.valorVentaUnidad = valorVentaUnidad;
     }
 

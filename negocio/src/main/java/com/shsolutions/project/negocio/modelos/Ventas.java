@@ -13,6 +13,8 @@ public class Ventas {
 
     private List<ProductosVentasDTO> productosVentasDTOList;
 
+    private Double total;
+
     public Integer getIdVenta() {
         return idVenta;
     }
@@ -59,5 +61,13 @@ public class Ventas {
 
     public void setProductosVentasDTOList(List<ProductosVentasDTO> productosVentasDTOList) {
         this.productosVentasDTOList = productosVentasDTOList;
+    }
+
+    public Double getTotal() {
+        return total;
+    }
+
+    public void setTotal(Double total) {
+        this.total = total;
     }
 }

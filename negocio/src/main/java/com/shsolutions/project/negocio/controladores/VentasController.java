@@ -3,6 +3,7 @@ package com.shsolutions.project.negocio.controladores;
 import com.shsolutions.project.negocio.modelos.*;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -43,7 +44,7 @@ public class VentasController {
     Ventas save(@RequestBody Ventas ventas) {
         Ventas venta =  restTemplate.postForObject(DOMAIN_URL, ventas, Ventas.class);
         ventas.setIdVenta(venta.getIdVenta());
-        realizarVenta(venta);
+        ventas.setTotal(realizarVenta(venta));
         return venta;
     }
 
@@ -53,7 +54,7 @@ public class VentasController {
     }
 
     //@PostMapping("/realizarVenta")
-    void realizarVenta(@RequestBody Ventas ventas) {
+    double realizarVenta(@RequestBody Ventas ventas) {
         List<Inventarios> inventariosConCantidadExistente;
         HashMap<Integer, Integer> ventasProductosProveedores = new HashMap<>();
         List<Inventarios> inventario = new ArrayList<>();
@@ -83,11 +84,16 @@ public class VentasController {
                 ventaProducto.setIdInventario(inventariosOptional[0].getIdInventario());
                 ventaProducto.setIdVenta(ventas.getIdVenta());
                 ventaProducto.setCantidadVendida(value);
-                ventaProducto.setValorVentaUnidad(finalProductosList.stream().filter(s -> s.getIdProducto().equals(inventariosOptional[0].getIdProducto())).findFirst().get().getValorUnidadVenta());
+                ventaProducto.setValorVentaUnidad(finalProductosList.stream().filter(s -> s.getIdProducto().equals(inventariosOptional[0].getIdProducto())).findFirst().get().getValorUnidadVenta().doubleValue());
                 ventasProductos.add(ventaProducto);
             });
             restTemplate.postForObject(DOMAIN_URL_VENTAS_PRODUCTOS + "/saveAll", ventasProductos, Void.class);
         }
+        double total = 0d;
+        for(VentasProductos vp : ventasProductos){
+            total = total + (vp.getCantidadVendida() * vp.getValorVentaUnidad());
+        }
+        return total;
     }
 
     private void realizarVenta(){
@@ -99,6 +105,7 @@ public class VentasController {
         Integer idProductoProveedor;
         int cantidad = pv.getCantidad();
         int longitudInventario;
+        double total =0d;
         while(cantidad > 0){
             longitudInventario = 0;
             for(int i = 0; i < inventariosPorProducto.size(); i++){
@@ -110,6 +117,7 @@ public class VentasController {
                     }else{
                         ventasProductosProveedores.put(idProductoProveedor,1);
                     }
+                    total += inventariosPorProducto.get(longitudInventario).getValor().doubleValue();
                     cantidad--;
                 }
             }
