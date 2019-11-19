@@ -78,7 +78,7 @@ public class Ventas implements Serializable {
 
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "IdPersona", referencedColumnName = "IdPersona", updatable = false, insertable = false)
+    @JoinColumn(name = "IdPersonaVenta", referencedColumnName = "IdPersona", updatable = false, insertable = false)
     public Personas getPersonas() {
         return personas;
     }
