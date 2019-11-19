@@ -40,7 +40,7 @@ public class InventariosController {
         return inventariosRepository.findAllByIndicadorHabilitadoTrueAndIdSucursalAndProductosProveedores_Productos_IdProductoIn(idSucursal,idList);
     }
 
-    @PostMapping("/sucursal/{idSucursal}")
+    @GetMapping("/sucursal/{idSucursal}")
     List<Inventarios> findByIdSucursal(@PathVariable Integer idSucursal) {
         return inventariosRepository.findAllByIndicadorHabilitadoTrueAndIdSucursal(idSucursal);
     }
