@@ -65,7 +65,7 @@ public class VentasProductos implements Serializable {
     }
 
     @Basic
-    @Column(name = "ValorVentaUnidad")
+    @Column(name = "ValorVentaUnidad", columnDefinition="decimal", precision=18, scale=3)
     public Double getValorVentaUnidad() {
         return valorVentaUnidad;
     }
