@@ -13,6 +13,7 @@ public class Productos {
     private BigDecimal valorUnidadVenta;
     private Boolean indicadorServicio;
     private Boolean indicadorHabilitado;
+    private Integer cantidadExistente;
 
     public Integer getIdProducto() {
         return idProducto;
@@ -76,5 +77,13 @@ public class Productos {
 
     public void setValorUnidadVenta(BigDecimal valorUnidadVenta) {
         this.valorUnidadVenta = valorUnidadVenta;
+    }
+
+    public Integer getCantidadExistente() {
+        return cantidadExistente;
+    }
+
+    public void setCantidadExistente(Integer cantidadExistente) {
+        this.cantidadExistente = cantidadExistente;
     }
 }
