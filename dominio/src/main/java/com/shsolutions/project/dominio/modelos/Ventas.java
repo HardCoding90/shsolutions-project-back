@@ -78,7 +78,7 @@ public class Ventas implements Serializable {
     }
 
     @Basic
-    @Column(name = "Total")
+    @Column(name = "Total", columnDefinition="decimal", precision=18, scale=3)
     public Double getTotal() {
         return total;
     }
