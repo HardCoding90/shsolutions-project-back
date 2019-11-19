@@ -44,7 +44,8 @@ public class VentasController {
     Ventas save(@RequestBody Ventas ventas) {
         Ventas venta =  restTemplate.postForObject(DOMAIN_URL, ventas, Ventas.class);
         ventas.setIdVenta(venta.getIdVenta());
-        ventas.setTotal(realizarVenta(venta));
+        List<ProductosVentasDTO> productosVentasDTOS = ventas.getProductosVentasDTOList();
+        ventas.setTotal(realizarVenta(venta, productosVentasDTOS));
         update(ventas);
         return venta;
     }
@@ -55,7 +56,8 @@ public class VentasController {
     }
 
     //@PostMapping("/realizarVenta")
-    double realizarVenta(@RequestBody Ventas ventas) {
+    double realizarVenta(@RequestBody Ventas ventas,List<ProductosVentasDTO> productosVentasDTOS) {
+        ventas.setProductosVentasDTOList(productosVentasDTOS);
         List<Inventarios> inventariosConCantidadExistente;
         HashMap<Integer, Integer> ventasProductosProveedores = new HashMap<>();
         List<Inventarios> inventario = new ArrayList<>();
@@ -118,7 +120,7 @@ public class VentasController {
                     }else{
                         ventasProductosProveedores.put(idProductoProveedor,1);
                     }
-                    total += inventariosPorProducto.get(longitudInventario).getValor().doubleValue();
+                    //total += inventariosPorProducto.get(longitudInventario).getValor().doubleValue();
                     cantidad--;
                 }
             }
