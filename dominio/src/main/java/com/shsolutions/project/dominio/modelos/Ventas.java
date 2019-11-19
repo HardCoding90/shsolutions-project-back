@@ -1,5 +1,6 @@
 package com.shsolutions.project.dominio.modelos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.shsolutions.project.dominio.configuracion.LocalDateTimeConverter;
 
 import javax.persistence.*;
@@ -16,6 +17,9 @@ public class Ventas implements Serializable {
     private Integer idPersonaVenta;
     private LocalDateTime fechaVenta;
     private Boolean indicadorHabilitado;
+
+    private Personas personas;
+    private String nombrePersona;
 
     public Ventas() {
     }
@@ -70,6 +74,27 @@ public class Ventas implements Serializable {
 
     public void setIndicadorHabilitado(Boolean indicadorHabilitado) {
         this.indicadorHabilitado = indicadorHabilitado;
+    }
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "IdPersona", referencedColumnName = "IdPersona", updatable = false, insertable = false)
+    public Personas getPersonas() {
+        return personas;
+    }
+
+    public void setPersonas(Personas personas) {
+        this.personas = personas;
+    }
+
+    @Transient
+    public String getNombrePersona() {
+        return personas != null ? (personas.getPrimerNombre() != null ? personas.getPrimerNombre() : "") +" " + (personas.getSegundoNombre() != null ? personas.getSegundoNombre() : "") +" " +
+                (personas.getPrimerApellido() != null ? personas.getPrimerApellido() : "") + " " +(personas.getSegundoApellido() != null ? personas.getSegundoApellido() : "") : "";
+    }
+
+    public void setNombrePersona(String nombrePersona) {
+        this.nombrePersona = nombrePersona;
     }
 
     @Override

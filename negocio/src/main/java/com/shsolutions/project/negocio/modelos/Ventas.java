@@ -10,6 +10,7 @@ public class Ventas {
     private Integer idPersonaVenta;
     private LocalDateTime fechaVenta;
     private Boolean indicadorHabilitado;
+    private String nombrePersona;
 
     private List<ProductosVentasDTO> productosVentasDTOList;
 
@@ -69,5 +70,13 @@ public class Ventas {
 
     public void setTotal(Double total) {
         this.total = total;
+    }
+
+    public String getNombrePersona() {
+        return nombrePersona;
+    }
+
+    public void setNombrePersona(String nombrePersona) {
+        this.nombrePersona = nombrePersona;
     }
 }
