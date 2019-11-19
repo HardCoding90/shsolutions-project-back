@@ -45,6 +45,7 @@ public class OrdenesController {
 
     @PostMapping()
     Ordenes save(@RequestBody Ordenes ordenes) {
+        ordenes.setIndicadorHabilitado(false);
         Ordenes orden = restTemplate.postForObject(DOMAIN_URL, ordenes, Ordenes.class);
         List<OrdenesProductos> ordenesProductos;
         int idOrden = orden.getIdOrden();
@@ -54,6 +55,8 @@ public class OrdenesController {
             ordenesProductos.forEach(x -> x.setIdOrden(idOrden));
             Arrays.asList(restTemplate.postForObject(DOMAIN_URL_ORDENES_PRODUCTOS + "/saveAll", ordenesProductos, OrdenesProductos[].class));
         }
+        ordenes.setIndicadorRecibida(true);
+        update(ordenes);
         return ordenes;
     }
 
@@ -74,6 +77,18 @@ public class OrdenesController {
                     }
                 }
                 restTemplate.postForObject(DOMAIN_URL_INVENTARIOS + "/saveAll", inventariosListActualizado,Void.class);
+            }else{
+                List<Inventarios> inventarios = new ArrayList<>();
+                for(OrdenesProductos or: ordenes.getOrdenesProductos()){
+                    Inventarios in = new Inventarios();
+                    in.setIdProducto(or.getIdProducto());
+                    in.setIdProductoProveedor(or.getIdProductoProveedor());
+                    in.setIdSucursal(ordenes.getIdSucursal());
+                    in.setIndicadorHabilitado(true);
+                    in.setCantidadExistente(or.getCantidad());
+                    inventarios.add(in);
+                }
+                restTemplate.postForObject(DOMAIN_URL_INVENTARIOS + "/saveAll", inventarios,Void.class);
             }
         }
         return restTemplate.postForObject(DOMAIN_URL, ordenes, Ordenes.class);
