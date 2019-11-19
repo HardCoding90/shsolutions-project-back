@@ -20,7 +20,7 @@ public class Ordenes implements Serializable {
     private Boolean indicadorRecibida;
     private Boolean indicadorHabilitado;
 
-    private List<OrdenesProductos> ordenesProductos = new ArrayList<>();
+    //private List<OrdenesProductos> ordenesProductos = new ArrayList<>();
 
     public Ordenes() {
     }
@@ -77,7 +77,7 @@ public class Ordenes implements Serializable {
         this.indicadorHabilitado = indicadorHabilitado;
     }
 
-    @OneToMany(cascade = CascadeType.ALL)
+    /*@OneToMany
     @Where(clause = "IndicadorHabilitado = true")
     @JoinColumn(name = "IdOrden",referencedColumnName = "IdOrden")
     public List<OrdenesProductos> getOrdenesProductos() {
@@ -86,7 +86,7 @@ public class Ordenes implements Serializable {
 
     public void setOrdenesProductos(List<OrdenesProductos> ordenesProductos) {
         this.ordenesProductos = ordenesProductos;
-    }
+    }*/
 
     @Override
     public boolean equals(Object o) {

@@ -1,7 +1,6 @@
 package com.shsolutions.project.dominio.controladores;
 
 import com.shsolutions.project.dominio.modelos.Ordenes;
-import com.shsolutions.project.dominio.modelos.Paises;
 import com.shsolutions.project.dominio.repositorios.OrdenesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -33,7 +32,9 @@ public class OrdenesController {
 
     @PostMapping()
     Ordenes save(@RequestBody Ordenes ordenes) {
-        configurarValoresPorDefecto(ordenes);
+        ordenes.setFechaOrden(ordenes.getFechaOrden() != null ? ordenes.getFechaOrden() : LocalDateTime.now());
+        ordenes.setIndicadorRecibida(ordenes.getIndicadorRecibida() != null ? ordenes.getIndicadorRecibida() : false);
+        ordenes.setIndicadorHabilitado(ordenes.getIndicadorHabilitado() != null ? ordenes.getIndicadorHabilitado() : true);
         return ordenesRepository.save(ordenes);
     }
 

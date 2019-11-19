@@ -54,7 +54,7 @@ public class OrdenesController {
             ordenesProductos.forEach(x -> x.setIdOrden(idOrden));
             Arrays.asList(restTemplate.postForObject(DOMAIN_URL_ORDENES_PRODUCTOS + "/saveAll", ordenesProductos, OrdenesProductos[].class));
         }
-        return orden;
+        return ordenes;
     }
 
     @PutMapping()
