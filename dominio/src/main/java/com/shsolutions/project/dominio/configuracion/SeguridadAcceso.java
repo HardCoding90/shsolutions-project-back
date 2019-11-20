@@ -25,7 +25,9 @@ public class SeguridadAcceso {
 
     public static void enviarCorreoSeguridad(Usuarios usuarios, Personas personas) {
         if (personas == null) return;
-        final String username = "warevalo.electronica2017@gmail.com";
+        //Aquí va el correo del cual se van a enviar las notificaciones
+        final String username = "CORREO@gmail.com";
+        //Aquí va la contraseña del correo
         final String password = "21seminarista21";
 
         Properties prop = new Properties();
