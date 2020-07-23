@@ -28,7 +28,7 @@ public class SeguridadAcceso {
         //Aquí va el correo del cual se van a enviar las notificaciones
         final String username = "CORREO@gmail.com";
         //Aquí va la contraseña del correo
-        final String password = "21seminarista21";
+        final String password = "XXXX";
 
         Properties prop = new Properties();
         prop.put("mail.smtp.host", "smtp.gmail.com");
